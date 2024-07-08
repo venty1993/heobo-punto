@@ -38,3 +38,112 @@ body{
     list-style: none;
     font-weight: bold;
 }
+
+#punto_main_intro{
+    margin: 0 auto; padding: 0 32px;
+    display: flex; align-items: center; justify-content: center;
+    border-bottom: 2px solid white;
+}
+
+.main_intro_container{
+    min-width: 1280px; height: 780px;
+    display: flex; flex-direction: column; justify-content: center;
+}
+
+.main_intro_title{
+    font-size: 85px; font-weight: 900; color: white;
+    margin-bottom: 15px;
+}
+
+.main_intro_slogan_E{
+    font-size: 30px; line-height: 1.3; color: white;
+    margin-bottom: 40px;
+}
+
+.main_intro_slogan_K{
+    font-size: 26px; color: white;
+    margin-bottom: 80px;
+}
+
+.main_intro_loop_container{
+    position: relative; width: 100%;
+    display: flex; align-items: center; justify-content: end; gap: 16px;
+}
+
+.loop_content{
+    position: absolute; top: 40%;
+    font-size: 150px; font-weight: 900;
+    color: transparent; -webkit-text-stroke: 2px white; padding: 20px;
+    text-align: center;
+}
+
+.loop_content:nth-child(1){
+    left: 100%;
+}
+
+.loop_content:nth-child(3){
+    left: -100%;
+}
+
+#punto_introduction{
+    height: 1920px;
+    margin: 0 auto; padding: 0 32px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    border-bottom: 2px solid white;
+}
+
+.introduction_text_container{
+    min-width: 1280px;
+    text-align: center; line-height: 1.3; color: white;
+}
+
+.introduction_text{
+    font-size: 36px;
+}
+
+.introduction_text_title{
+    font-size: 72px; font-weight: 900;
+    margin-bottom: 40px;
+}
+
+.introduction_up_fixed_container{
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 40px;
+    margin-bottom: 170px;
+}
+
+.up_fixed_content{
+    min-width: 848px; min-height: 80px;
+    margin: 10px;
+    border: 2px solid white; border-radius: 50px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 25px; font-weight: 500; color: white;
+}
+
+.introduction_service_field_container{
+    min-width: 848px; height: 100%;
+    display: flex; flex-direction: column; justify-content: center; gap: 60px;
+}
+
+.service_field_text_container{
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 30px; font-weight: 600; color: white;
+}
+
+.service_field_content_container{
+    max-width:  848px; height: 100%;
+    display: flex;  flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px;
+
+}
+
+.service_field_content{
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    max-width: 200px;
+}
+
+.service_field_img{
+    max-width: 150px;
+}
+
+.service_field_kind{
+    font-size: 20px; margin: 10px;
+}
