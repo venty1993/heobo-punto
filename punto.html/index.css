@@ -1,0 +1,40 @@
+img{
+    display: block;
+    width: 100%;
+}
+
+button{
+    all: unset;
+    cursor: pointer; 
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    cursor:pointer;
+}
+
+
+body{
+    background-color: #141414;
+}
+
+.header_container{
+    margin: 0 auto; padding: 0 32px;
+    max-width: 1280px; height: 90px;
+    display: flex; align-items: center; justify-content: space-between;
+}
+
+.header_nav_container{
+    display: flex; align-items: center; gap: 45px;
+}
+
+.header_nav_content_container{
+    min-width: 500px; height: 100%;
+    display: flex; align-items: center; justify-content: center; gap: 32px;
+}
+
+.header_nav_content{
+    list-style: none;
+    font-weight: bold;
+}
