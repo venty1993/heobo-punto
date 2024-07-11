@@ -100,9 +100,13 @@ body{
     position: relative;
     height: 100%;
     width: 100%;
+    /* flex 정렬속성 사용하면 position 없어도 설정 가능 */
+    /* display: flex; align-items:center; justify-content: center; */
 }
 
 .loop_content{
+    /* 위에 loop_content_container에 flex 속성 사용할 경우 
+    loop_content  position: absolute; 삭제 및 nth-child 속성 삭제 */
     position: absolute;
     width: 100%;
     font-size: 145px; 
