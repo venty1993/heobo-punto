@@ -56,12 +56,15 @@ body{
     align-items: center; 
     justify-content: center;
     border-bottom: 2px solid white;
+    overflow: hidden;
+    margin-top: 180px;
+    margin-bottom: 120px;
 }
 
 .main_intro_container{
     max-width: 1280px; 
     width: 100%;
-    height: 780px;
+    height: 100%;
     display: flex; 
     flex-direction: column; 
     justify-content: center;
@@ -88,25 +91,26 @@ body{
 }
 
 .main_intro_loop_container{
-    /* overflow: hidden; */
     width: 100%;
+    animation: roll 10s infinite linear;
+    
 }
 
 .loop_content_container{
     position: relative;
-    display: flex;
+    height: 100%;
     width: 100%;
 }
 
 .loop_content{
     position: absolute;
     width: 100%;
-    font-size: 150px; 
+    font-size: 145px; 
     font-weight: 900;
     color: transparent; 
     -webkit-text-stroke: 2px white; 
     padding: 20px;
-    text-align: center;
+    box-sizing: border-box;
 }
 
 .loop_content:nth-child(1){
@@ -114,10 +118,11 @@ body{
 }
 
 .loop_content:nth-child(2){
-    background-color: orange;
+    position: static;
 }
 
 .loop_content:nth-child(3){
+    top: 0;
     left: 100%;
 }
 
@@ -131,6 +136,7 @@ body{
     align-items: center; 
     justify-content: center; 
     gap: 100px;
+    margin-top: 230px;
     margin-bottom: 70px;
 }
 
@@ -271,6 +277,8 @@ body{
     line-height: 1.5; 
     color: white; 
     font-size: 30px;
+    margin-bottom: 230px;
+    margin-top: 60px;
 }
 
 .introduction_content_text_contaienr>.text_point{
@@ -279,23 +287,20 @@ body{
 }
 
 #punto_portfolio_slide_container{
-    margin: 0 auto; 
-    padding: 0 32px;
+    margin: 0 auto;
 }
 
 .slide_content_container{
-    height: 100%; 
-    width: 100%;
-    display: flex; 
-    flex-direction: column; 
+    width: fit-content;
+    display: flex;
     justify-content: center; 
     align-items: center;
-    /* overflow: hidden; */
 }
 
 .slide_main_content_container{
     height: 100vh; 
-    width: 100%;
+    width: 1903px;
+    flex-shrink: 0;
     display: flex; 
     align-items: center; 
     justify-content: center;
@@ -315,13 +320,14 @@ body{
 
 .slide_scroll_content{
     position: relative;
-    /* max-width: 1280px;  */
-    width: 100vw; 
+    width: 1901px;
     height: 100vh;
-    display: flex; 
+    display: flex;
+    flex-shrink: 0; 
     align-items: center; 
     justify-content: center;
 }
+
 .slide_scroll_img{
     width: 100%;
     height: 100%;
@@ -454,4 +460,14 @@ body{
     display: flex; 
     align-items: center; 
     gap: 16px;
+}
+
+@keyframes roll {
+    0%{
+       transform: translateX(50%);
+    }    
+
+    100%{
+        transform: translateX(-50%);
+    }
 }
