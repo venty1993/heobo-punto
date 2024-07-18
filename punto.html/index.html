@@ -220,26 +220,43 @@
     <script>
         const pScrollSection = document.querySelector('#punto_scroll_section');
         const pScrollContainer = document.querySelector('.p_scroll_wrapper');
+        const onePageContent = document.querySelectorAll('.scroll_content');
+        const upFixedContainer = document.querySelector('.introduction_up_fixed_container');
         let range;
+
+        // for문은 필요없음 up_fixed_container에 active.가 들어가게만들어야함.
+
+        window.addEventListener('scroll',(e)=>{
+            // 밑에꺼 보고 작성할 것
+            if(upFixedContent[i].getBoundingClientRect().top < window.innerHeight*3/4){
+                upFixedContent[i].classList.add('active');
+            }else{
+                upFixedContent[i].classList.remove('active');
+            }
+        })
 
         const init = () => {
             range = pScrollContainer.getBoundingClientRect().width;
             pScrollSection.style.height = `${range}px`
         }
+
+
         init();
         window.addEventListener('resize', init)
-        window.addEventListener('scroll',()=>{
+        window.addEventListener('scroll',(e)=>{
             const translateX = pScrollSection.getBoundingClientRect().top;
 
             if(translateX > 0){
                 pScrollContainer.style.transform = `translateX(${0}px)`
+
             }else if(translateX < window.innerWidth-range){
                 pScrollContainer.style.transform = `translateX(${window.innerWidth-range}px)`
+
             }else {
                 pScrollContainer.style.transform = `translateX(${translateX}px)`
             }
-        })
 
+        })
     </script>
 </body>
 </html>
