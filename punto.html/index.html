@@ -91,7 +91,7 @@
                         <img src="./ponto_img/웹디자인.png" alt="" class="service_field_img">
                         <p class="service_field_kind">#웹디자인</p>
                     </a>
-                    <a href="#" class="service_field_content">"
+                    <a href="#" class="service_field_content">
                         <img src="./ponto_img/로고디자인.png" alt="" class="service_field_img">
                         <p class="service_field_kind">#로고디자인</p>
                     </a>
@@ -186,6 +186,17 @@
                     </li>
                 </ul>
             </div>
+            <!-- 모바일 사이즈일 경우 슬라이더 코드 짜기 -->
+            <div class="my-slide">
+                <!-- a or div -->
+                <a href="" class="content">
+                    <div class="text_container">
+                        <p class="slide_scroll_text_e">Brand Design</p>
+                        <p class="slide_scroll_text_k">브랜드 디자인</p>
+                        <button class="slide_scroll_btn">더보기</button>
+                    </div>
+                </a>
+            </div>
         </section> 
 
         <section id="puto_inquiry">
@@ -203,21 +214,32 @@
                 <div class="footer_logo_container"> 
                     로고
                 </div>
-                <div class="footer_information_text">
-                    <span>Add. 인천광역시 송도동 타워대로 323</span>
-                    <span>T. 010-0000-0000</span>
-                    <span>E. punto9827@gmail.com</span>
+                <div class="sns_container">
+                    <a href="#"><img src="./ponto_img/" alt="kakao" class="sns_content_icon"></a>
+                    <a href="#"><img src="./ponto_img/sns-icon-instagram.png" alt="instergram" class="sns_content_icon"></a>
+                    <a href="#"><img src="./ponto_img/sns-icon-blog.png" alt="blog" class="sns_content_icon"></a>
                 </div>
             </div>
-            <div class="sns_container">
-                <a href="#"><img src="" alt="kakao" class="sns_content_icon"></a>
-                <a href="#"><img src="" alt="instergram" class="sns_content_icon"></a>
-                <a href="#"><img src="" alt="blog" class="sns_content_icon"></a>
-            </div>
 
+            <div class="footer_information_text_container">
+                <div class="footer_infor_left">
+                    <strong>Add.</strong>
+                    <span>인천광역시 송도동 타워대로 323</span>
+                </div>
+
+                <div class="footer_infor_right">
+                    <strong>T.</strong>
+                    <span>010-0000-0000</span>
+                    <strong>E.</strong>
+                    <span>punto9827@gmail.com</span>
+                </div>
+            </div>
         </div>
     </footer>
+    <script src="makeSlider.js"></script>
     <script>
+        makeSlider(document.querySelector('.my-slide'),2,4);
+
         const pScrollSection = document.querySelector('#punto_scroll_section');
         const pScrollContainer = document.querySelector('.p_scroll_wrapper');
         const onePageContent = document.querySelectorAll('.scroll_content');
