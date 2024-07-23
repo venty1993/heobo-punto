@@ -80,7 +80,7 @@
 
                 <div class="service_field_content_container">
                     <a href="#" class="service_field_content">
-                        <img src="./ponto_img/1.png" alt="" class="service_field_img">
+                        <img src="./ponto_img/브랜딩디자인.png" alt="" class="service_field_img">
                         <p class="service_field_kind">#브랜딩</p>
                     </a>
                     <a href="#" class="service_field_content">
@@ -88,27 +88,27 @@
                         <p class="service_field_kind">#카피라이팅</p>
                     </a>
                     <a href="#" class="service_field_content">
-                        <img src="./ponto_img/1.png" alt="" class="service_field_img">
+                        <img src="./ponto_img/웹디자인.png" alt="" class="service_field_img">
                         <p class="service_field_kind">#웹디자인</p>
                     </a>
-                    <a href="#" class="service_field_content">
-                        <img src="./ponto_img/1.png" alt="" class="service_field_img">
+                    <a href="#" class="service_field_content">"
+                        <img src="./ponto_img/로고디자인.png" alt="" class="service_field_img">
                         <p class="service_field_kind">#로고디자인</p>
                     </a>
                     <a href="#" class="service_field_content">
-                        <img src="./ponto_img/1.png" alt="" class="service_field_img">
+                        <img src="./ponto_img/상세페이지디자인.png" alt="" class="service_field_img">
                         <p class="service_field_kind">#상세페이지</p>
                     </a>
                     <a href="#" class="service_field_content">
-                        <img src="./ponto_img/1.png" alt="" class="service_field_img">
+                        <img src="./ponto_imG/컨텐츠디자인.png" alt="" class="service_field_img">
                         <p class="service_field_kind">#컨텐츠디자인</p>
                     </a>
                     <a href="#" class="service_field_content">
-                        <img src="./ponto_img/1.png" alt="" class="service_field_img">
+                        <img src="./ponto_img/편집디자인.png" alt="" class="service_field_img">
                         <p class="service_field_kind">#편집디자인</p>
                     </a>
                     <a href="#" class="service_field_content">
-                        <img src="./ponto_img/1.png" alt="" class="service_field_img">
+                        <img src="./ponto_img/패키지디자인.png" alt="" class="service_field_img">
                         <p class="service_field_kind">#패키지디자인</p>
                     </a>
                 </div>
@@ -223,17 +223,27 @@
         const onePageContent = document.querySelectorAll('.scroll_content');
         const upFixedContainer = document.querySelector('.introduction_up_fixed_container');
         let range;
+        let isThrottled = false;
 
-        // for문은 필요없음 up_fixed_container에 active.가 들어가게만들어야함.
 
-        window.addEventListener('scroll',(e)=>{
-            // 밑에꺼 보고 작성할 것
-            if(upFixedContent[i].getBoundingClientRect().top < window.innerHeight*3/4){
-                upFixedContent[i].classList.add('active');
+        window.addEventListener('wheel', () => {
+            if(isThrottled) return;
+
+            isThrottled = true;
+
+            const topPosition = upFixedContainer.getBoundingClientRect().top;
+
+            if(topPosition < window.innerHeight*3/4){
+                upFixedContainer.classList.add('active');
             }else{
-                upFixedContent[i].classList.remove('active');
+                upFixedContainer.classList.remove('active');
             }
+
+            setTimeout(() => {
+                isThrottled = false;
+            }, 100);
         })
+
 
         const init = () => {
             range = pScrollContainer.getBoundingClientRect().width;
@@ -257,6 +267,7 @@
             }
 
         })
+
     </script>
 </body>
 </html>

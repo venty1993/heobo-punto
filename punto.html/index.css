@@ -19,6 +19,7 @@ body{
     background-color: #181818;
 }
 
+
 .header_container{
     margin: 0 auto; 
     padding: 0 32px;
@@ -170,27 +171,11 @@ body{
     gap: 40px;
     margin-bottom: 100px;
     opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
-.introduction_up_fixed_container .active{
+.introduction_up_fixed_container.active{
     opacity: 1;
-}
-
-.introduction_up_fixed_container .active >.up_fixed_content{
-    transition: 1s ease-in-out;
-    transform: scale(1.2);
-}
-
-.introduction_up_fixed_container .active >.up_fixed_content:nth-child(2){
-    transition-delay: 0.2s;
-}
-
-.introduction_up_fixed_container .active >.up_fixed_content:nth-child(3){
-    transition-delay: 0.4s;
-}
-
-.introduction_up_fixed_container .active >.up_fixed_content:nth-child(4){
-    transition-delay: 0.6s;
 }
 
 .up_fixed_content{
@@ -204,7 +189,31 @@ body{
     font-size: 25px; 
     font-weight: 500; 
     color: white;
-    transition: 0.8s linear;
+    transition: opacity 0.8s ease-in-out, transform 1s ease-in-out;
+    opacity: 0;
+    transform: scale(1);
+}
+
+.introduction_up_fixed_container.active >.up_fixed_content{
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+
+.introduction_up_fixed_container.active >.up_fixed_content:nth-child(1){
+    transition-duration: 0s;
+}
+
+.introduction_up_fixed_container.active >.up_fixed_content:nth-child(2){
+    transition-delay: 1s;
+}
+
+.introduction_up_fixed_container.active >.up_fixed_content:nth-child(3){
+    transition-delay: 2s;
+}
+
+.introduction_up_fixed_container.active >.up_fixed_content:nth-child(4){
+    transition-delay: 3s;
 }
 
 /* .up_fixed_content.active{
@@ -225,7 +234,7 @@ body{
     display: flex; 
     align-items: center; 
     justify-content: space-between;
-    font-size: 30px; 
+    font-size: 26px; 
     font-weight: 600; 
     color: white;
 }
@@ -294,7 +303,7 @@ body{
     width: 100%; 
     height: 100%;
     padding: 5px; 
-    font-size: 16px; 
+    font-size: 18px; 
     font-weight: 500; 
     display: flex; 
     justify-content: center; 
@@ -485,7 +494,7 @@ body{
     align-items: center; 
     justify-content: center;
     padding-top: 30px; 
-    padding-bottom: 140px;
+    padding-bottom: 200px;
 }
 
 .footer_container{
