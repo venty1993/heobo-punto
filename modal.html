@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            height: 5000px;
+        }
+        
+        .modal {
+            display: none;
+
+            /* 항상 화면의 가운데에 고정해야하기 때문에 fixed */
+            position: fixed;
+
+            top: 0;
+            width: 100%;
+            height: 100%;
+
+            /* 정렬속성 : 자식 컨텐츠를 가운데 정렬 */
+            justify-content: center;
+            align-items: center;
+
+            background-color: #000000c0;
+
+            padding: 0 32px;
+            box-sizing: border-box;
+        }
+
+        .modal.open{
+            display: flex;
+        }
+
+        .modal-container{
+            /* z-index: 999; */
+            position: relative;
+            width: 800px;
+            background-color: #fff;
+            padding: 32px;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .modal-container > h2 {
+            margin-bottom: 16px;
+        }
+
+        .modal-container > button {
+            position: absolute;
+            top: 32px;
+            right: 32px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <button class="open-button">모달 열기</button>
+    <button class="open-button">모달 열기</button>
+    
+    <div class="modal">    
+        <div class="modal-container">
+            <h2>Hi</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio, nesciunt. Dolor vitae quos, neque, pariatur laboriosam praesentium adipisci in odio quis cum tempora vel. Ex perspiciatis deleniti ab quisquam cupiditate!</p>
+            <button>X</button>
+        </div>
+    </div>
+    
+    <script>
+        const table = [
+            ['branding' , "브랜딩 어쩌고저쩌고"],
+            ['copy' , "카피 어쩌고저쩌고"]
+        ]
+        // 사용하는 거 모두 불러야함.
+        const modal = document.querySelector('.modal')
+        const openButton = document.querySelectorAll('.open-button')
+        const xButton = document.querySelector('.modal-container > button')
+
+        for(let i = 0 ; i< openButton.length ; i ++) {
+
+            openButton[i].addEventListener('click', ()=>{
+                modal.querySelector('h2').innerText = table[i][0]
+                modal.querySelector('p').innerText = table[i][1]
+                modal.classList.add('open');
+
+            })
+        }
+
+        xButton.addEventListener('click', ()=>{
+            modal.classList.remove('open');
+        })
+
+        window.addEventListener('click', (e)=>{
+            if(e.target.classList.contains('modal')){
+                modal.classList.remove('open');
+            }
+        })
+        
+        // e.target.classList.contains('modal') => 이벤트 안에 타켓 리스트에 modal이 포함되어 있으면
+        // modal의 classList에서 open을 빼라
+
+    </script>
+</body>
+</html>

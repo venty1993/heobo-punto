@@ -86,38 +86,46 @@
                 </div>
 
                 <div class="service_field_content_container">
-                    <a href="#" class="service_field_content">
-                        <img src="./ponto_img/브랜딩디자인.png" alt="" class="service_field_img">
+                    <button class="open_service_field_content">
+                        <img src="./ponto_img/service_field_content_브랜드.png" alt="" class="service_field_img">
                         <p class="service_field_kind">#브랜딩</p>
-                    </a>
-                    <a href="#" class="service_field_content">
-                        <img src="./ponto_img/1.png" alt="" class="service_field_img">
+                    </button>
+
+                    <button class="open_service_field_content">
+                        <img src="./ponto_img/service_field_content_카피라이팅.png" alt="" class="service_field_img">
                         <p class="service_field_kind">#카피라이팅</p>
-                    </a>
-                    <a href="#" class="service_field_content">
-                        <img src="./ponto_img/웹디자인.png" alt="" class="service_field_img">
+                    </button>
+
+                    <button class="open_service_field_content">
+                        <img src="./ponto_img/service_field_content_웹.png" alt="" class="service_field_img">
                         <p class="service_field_kind">#웹디자인</p>
-                    </a>
-                    <a href="#" class="service_field_content">
-                        <img src="./ponto_img/로고디자인.png" alt="" class="service_field_img">
+                    </button>
+
+                    <button class="open_service_field_content">
+                        <img src="./ponto_img/service_field_content_로고.png" alt="" class="service_field_img">
                         <p class="service_field_kind">#로고디자인</p>
-                    </a>
-                    <a href="#" class="service_field_content">
-                        <img src="./ponto_img/상세페이지디자인.png" alt="" class="service_field_img">
+                    </button>
+
+                    <button class="open_service_field_content">
+                        <img src="./ponto_img/service_field_content_상세페이지.png" alt="" class="service_field_img">
                         <p class="service_field_kind">#상세페이지</p>
-                    </a>
-                    <a href="#" class="service_field_content">
-                        <img src="./ponto_imG/컨텐츠디자인.png" alt="" class="service_field_img">
+                    </button>
+
+                    <button class="open_service_field_content">
+                        <img src="./ponto_imG/service_field_content_컨텐츠.png" alt="" class="service_field_img">
                         <p class="service_field_kind">#컨텐츠디자인</p>
-                    </a>
-                    <a href="#" class="service_field_content">
-                        <img src="./ponto_img/편집디자인.png" alt="" class="service_field_img">
+                    </button>
+
+                    <button class="open_service_field_content">
+                        <img src="./ponto_img/service_field_content_편집.png" alt="" class="service_field_img">
                         <p class="service_field_kind">#편집디자인</p>
-                    </a>
-                    <a href="#" class="service_field_content">
-                        <img src="./ponto_img/패키지디자인.png" alt="" class="service_field_img">
+                    </button>
+
+                    <button class="open_service_field_content">
+                        <img src="./ponto_img/service_field_content_패키지.png" alt="" class="service_field_img">
                         <p class="service_field_kind">#패키지디자인</p>
-                    </a>
+                    </button>
+
                 </div>
                 
             </div>
@@ -194,8 +202,7 @@
                 </ul>
             </div>
             <!-- 모바일 사이즈일 경우 슬라이더 코드 짜기 -->
-            <div class="my-slide">
-                <!-- a or div -->
+            <!-- <div class="my-slide">
                 <a href="" class="content">
                     <div class="text_container">
                         <p class="slide_scroll_text_e">Brand Design</p>
@@ -203,7 +210,7 @@
                         <button class="slide_scroll_btn">더보기</button>
                     </div>
                 </a>
-            </div>
+            </div> -->
         </section> 
 
         <section id="puto_inquiry">
@@ -245,7 +252,7 @@
     </footer>
     <script src="makeSlider.js"></script>
     <script>
-        makeSlider(document.querySelector('.my-slide'),2,4);
+        // makeSlider(document.querySelector('.my-slide'),2,4);
 
         const pScrollSection = document.querySelector('#punto_scroll_section');
         const pScrollContainer = document.querySelector('.p_scroll_wrapper');
@@ -262,7 +269,7 @@
 
             const topPosition = upFixedContainer.getBoundingClientRect().top;
 
-            if(topPosition < window.innerHeight*3/4){
+            if(topPosition < window.innerHeight*2/3){
                 upFixedContainer.classList.add('active');
             }else{
                 upFixedContainer.classList.remove('active');
