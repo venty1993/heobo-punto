@@ -14,6 +14,12 @@ a{
     cursor:pointer;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 
 body{
     background-color: #181818;
@@ -348,6 +354,7 @@ body{
 }
 
 .p_scroll_wrapper > .main_scroll_content {
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -367,6 +374,7 @@ body{
 } 
 
 .p_scroll_wrapper > .scroll_content{
+    width: 50vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -393,6 +401,7 @@ body{
 }
 
 .slide_scroll_btn {
+    position: relative;
     font-size: 16px;
     font-weight: bold;
     width: 120px;
@@ -403,29 +412,78 @@ body{
     text-align: center;
 }
 
-.scroll_content:nth-child(1){
-    background-image: url();
+.slide_scroll_btn::after{
+    position: absolute(50%);
+    content: "";
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: aqua;
+    transform: translate(-50%, -50%);
+    animation: criss-cross-left 0.8s reverse;
 }
+
+
+
+/* &:hover {
+  color: tint($btn-color, 75%);
+
+  &:before,
+  &:after {
+    // @include size($btn-width);
+  }
+  
+  &:before {
+    animation: criss-cross-left 0.8s both;
+    animation-direction: alternate;
+  }
+  
+  &:after {
+    animation: criss-cross-right 0.8s both;
+    animation-direction: alternate;
+  }
+}
+} */
+
+
 .scroll_content:nth-child(2){
-    background-image: url();
+    background-image: url(./ponto_img/9051050.jpg);
+    background-size: cover;
 }
+
 .scroll_content:nth-child(3){
-    background-image: url();
+    background-image: url(./ponto_img/9051050.jpg);
+    background-size: cover;
 }
+
 .scroll_content:nth-child(4){
-    background-image: url();
+    background-image: url(./ponto_img/9051050.jpg);
+    background-size: cover;
 }
+
 .scroll_content:nth-child(5){
-    background-image: url();
+    background-image: url(./ponto_img/9051050.jpg);
+    background-size: cover;
 }
+
 .scroll_content:nth-child(6){
-    background-image: url();
+    background-image: url(./ponto_img/9051050.jpg);
+    background-size: cover;
 }
+
 .scroll_content:nth-child(7){
-    background-image: url();
+    background-image: url(./ponto_img/9051050.jpg);
+    background-size: cover;
 }
+
 .scroll_content:nth-child(8){
-    background-image: url();
+    background-image: url(./ponto_img/9051050.jpg);
+    background-size: cover;
+}
+
+.scroll_content:nth-child(9){
+    background-image: url(./ponto_img/9051050.jpg);
+    background-size: cover;
 }
 
 #puto_inquiry{
