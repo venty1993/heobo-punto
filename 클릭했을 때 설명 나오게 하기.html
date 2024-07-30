@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    max-width: 1280px;
+}
+
+.box {
+    width: 256px;
+    height: 128px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 2px;
+    cursor: pointer;
+    transition: width 0.3s;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    background-color: pink;
+}
+
+.box span {
+    position: absolute;
+    transition: opacity 0.3s;
+}
+
+.box span.hidden {
+    opacity: 0;
+}
+
+#description {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" data-word="Precision" data-description="정밀한 디자인">P</div>
+        <div class="box" data-word="Uniqueness" data-description="독특한 개성">U</div>
+        <div class="box" data-word="Novelty" data-description="신선한 혁신">N</div>
+        <div class="box" data-word="Trustworthiness" data-description="신뢰할 수 있는 파트너">T</div>
+        <div class="box" data-word="Optimization" data-description="최적의 솔루션">O</div>
+    </div>
+    <div id="description"></div>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const boxes = document.querySelectorAll('.box');
+        const description = document.getElementById('description');
+
+        boxes.forEach(box => {
+            const letter = box.textContent;
+            const word = box.getAttribute('data-word');
+            const wordDescription = box.getAttribute('data-description');
+            box.innerHTML = `<span class="letter">${letter}</span><span class="hidden word">${letter}${word.slice(1)}</span>`;
+
+            box.addEventListener('click', () => {
+                boxes.forEach(b => {
+                    b.style.width = '256'; // Reset all boxes to original width
+                    b.querySelector('.letter').classList.remove('hidden'); // Show letter in all boxes
+                    b.querySelector('.word').classList.add('hidden'); // Hide word in all boxes
+                });
+
+                box.style.width = '768px'; // Expand clicked box
+                box.querySelector('.letter').classList.add('hidden'); // Hide letter in clicked box
+                box.querySelector('.word').classList.remove('hidden'); // Show word in clicked box
+                description.textContent = wordDescription; // Show description
+            });
+        });
+    });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    width: 250px;
+}
+
+.box {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgray;
+    margin: 0 2px;
+    cursor: pointer;
+    transition: width 0.3s;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.box span {
+    position: absolute;
+    transition: opacity 0.3s;
+}
+
+.box span.hidden {
+    opacity: 0;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" data-word="Precision">P</div>
+        <div class="box" data-word="Uniqueness">U</div>
+        <div class="box" data-word="Novelty">N</div>
+        <div class="box" data-word="Trustworthiness">T</div>
+        <div class="box" data-word="Optimization">O</div>
+    </div>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const boxes = document.querySelectorAll('.box');
+
+    boxes.forEach(box => {
+        const letter = box.textContent;
+        const word = box.getAttribute('data-word');
+        box.innerHTML = `<span class="letter">${letter}</span><span class="hidden word">${letter}${word.slice(1)}</span>`;
+        
+        box.addEventListener('click', () => {
+            boxes.forEach(b => {
+                b.style.width = '50px'; // Reset all boxes to original width
+                b.querySelector('.letter').classList.remove('hidden'); // Show letter in all boxes
+                b.querySelector('.word').classList.add('hidden'); // Hide word in all boxes
+            });
+
+            box.style.width = '150px'; // Expand clicked box
+            box.querySelector('.letter').classList.add('hidden'); // Hide letter in clicked box
+            box.querySelector('.word').classList.remove('hidden'); // Show word in clicked box
+        });
+    });
+});
+
+    </script>
+</body>
+</html>

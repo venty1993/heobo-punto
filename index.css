@@ -222,7 +222,7 @@ body{
     transition-delay: 0.6s;
 }
 
-.introduction_service_field_container{
+/* .introduction_service_field_container{
     max-width: 848px; 
     display: flex; 
     flex-direction: column; 
@@ -313,9 +313,9 @@ body{
     justify-content: center; 
     align-items: center;
     color: white;
-}
+} */
 
-/* #punto_introduction>.value_container{
+#punto_introduction>.value_container{
     display: flex;
     align-content: center;
     justify-content: center;
@@ -345,7 +345,7 @@ body{
 
 .value_box span .hidden{
     opacity: 0;
-} */
+}
 
 
 .introduction_content_text_contaienr{

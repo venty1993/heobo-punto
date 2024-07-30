@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../p2/punto.html/reset.css">
+    <style>
+    
+    body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    overflow: hidden;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header, .footer {
+    background-color: #444;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.header {
+    height: 100px; /* 상단 콘텐츠 높이 */
+}
+
+.footer {
+    height: 100px; /* 하단 콘텐츠 높이 */
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 10px 0;
+}
+
+.content {
+    margin-left: 200px;
+    padding: 20px;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    flex-grow: 1;
+    background-color: #e0e0e0;
+}
+
+.content-inner {
+    position: relative;
+    height: 2000px; /* 충분한 높이로 설정하여 스크롤 가능 */
+}
+
+.content-item {
+    background-color: #f0f0f0;
+    margin: 20px 0;
+    padding: 20px;
+    height: 150px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+</style>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <h1>상단 콘텐츠</h1>
+            <p>여기는 상단 콘텐츠 영역입니다. 다른 내용이 들어갈 수 있습니다.</p>
+        </header>
+        <div class="container">
+            <div class="sidebar">
+                <h2>고정된 메뉴</h2>
+                <ul>
+                    <li>메뉴 1</li>
+                    <li>메뉴 2</li>
+                    <li>메뉴 3</li>
+                </ul>
+            </div>
+            <div class="content">
+                <div class="content-inner">
+                    <div class="content-item">컨텐츠 1</div>
+                    <div class="content-item">컨텐츠 2</div>
+                    <div class="content-item">컨텐츠 3</div>
+                    <div class="content-item">컨텐츠 4</div>
+                    <div class="content-item">컨텐츠 5</div>
+                    <div class="content-item">컨텐츠 6</div>
+                    <div class="content-item">컨텐츠 7</div>
+                    <div class="content-item">컨텐츠 8</div>
+                    <div class="content-item">컨텐츠 9</div>
+                    <div class="content-item">컨텐츠 10</div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <h1>하단 콘텐츠</h1>
+            <p>여기는 하단 콘텐츠 영역입니다. 다른 내용이 들어갈 수 있습니다.</p>
+        </footer>
+    </div>
+
+
+
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const content = document.querySelector('.content');
+    const items = document.querySelectorAll('.content-item');
+
+    content.addEventListener('scroll', () => {
+        const scrollTop = content.scrollTop;
+        const contentHeight = content.offsetHeight;
+
+        items.forEach((item, index) => {
+            const itemTop = item.offsetTop;
+
+            // Check if the item is within the visible area
+            if (scrollTop + contentHeight > itemTop + item.offsetHeight / 2) {
+                item.style.transform = 'translateY(0)';
+                item.style.opacity = '1';
+            } else {
+                item.style.transform = 'translateY(50px)';
+                item.style.opacity = '0';
+            }
+        });
+    });
+});
+
+
+    </script>
+</body>
+</html>
