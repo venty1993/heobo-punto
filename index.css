@@ -462,6 +462,8 @@ body{
 } 
 
 .p_scroll_wrapper > .scroll_content{
+    overflow: hidden;
+    position: relative;
     width: 50vw;
     display: flex;
     align-items: center;
@@ -469,6 +471,7 @@ body{
 }
 
 .slide_scroll_text_content_container{
+    position: absolute;
     /* min-width: 1280px; */
     display: flex;
     flex-direction: column;
@@ -502,7 +505,13 @@ body{
     text-align: center;
 }
 
-.slide_scroll_btn::after{
+.slide_scroll_btn:hover{
+    background-color: white;
+    color: #141414;
+    transition: 0.3s;
+}
+
+/* .slide_scroll_btn::after{
     position: absolute(50%);
     content: "";
     width: 20px;
@@ -511,8 +520,18 @@ body{
     background-color: aqua;
     transform: translate(-50%, -50%);
     animation: criss-cross-left 0.8s reverse;
+} */
+
+.scroll_content:hover > img{
+    transform: scale(1.2)
 }
 
+.scroll_content_img{
+    filter: brightness(0.5);
+    object-fit: cover;
+    height: 100%;
+    transition: 0.6s;
+}
 
 
 /* &:hover {
@@ -535,46 +554,6 @@ body{
 }
 } */
 
-
-.scroll_content:nth-child(2){
-    background-image: url(./ponto_img/9051050.jpg);
-    background-size: cover;
-}
-
-.scroll_content:nth-child(3){
-    background-image: url(./ponto_img/9051050.jpg);
-    background-size: cover;
-}
-
-.scroll_content:nth-child(4){
-    background-image: url(./ponto_img/9051050.jpg);
-    background-size: cover;
-}
-
-.scroll_content:nth-child(5){
-    background-image: url(./ponto_img/9051050.jpg);
-    background-size: cover;
-}
-
-.scroll_content:nth-child(6){
-    background-image: url(./ponto_img/9051050.jpg);
-    background-size: cover;
-}
-
-.scroll_content:nth-child(7){
-    background-image: url(./ponto_img/9051050.jpg);
-    background-size: cover;
-}
-
-.scroll_content:nth-child(8){
-    background-image: url(./ponto_img/9051050.jpg);
-    background-size: cover;
-}
-
-.scroll_content:nth-child(9){
-    background-image: url(./ponto_img/9051050.jpg);
-    background-size: cover;
-}
 
 #puto_inquiry{
     margin: 0 auto; 
