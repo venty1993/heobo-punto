@@ -106,12 +106,15 @@
         
         <section id="punto_scroll_section">
             <div class="p_scroll_container">
+                <div class="background_image_place">
+                    <img src="./패키지디자인_img.png" alt="" class="scroll_content_img">
+                    <img src="./img/a1.png" alt="" class="scroll_content_img">
+                </div>
                 <ul class="p_scroll_wrapper">
                     <li class="main_scroll_content">
                         <p class="slide_main_text"><strong class="text_point">punto.</strong>는 마침표를 뜻하지만,<br>마침표는<strong class="text_point">또 다른 시작을 의미</strong>합니다</p>
                     </li>
                     <li class="scroll_content">
-                        <img src="./패키지디자인_img.png" alt="" class="scroll_content_img">
                         <div class="slide_scroll_text_content_container">
                             <p class="slide_scroll_text_e">Brand Design</p>
                             <p class="slide_scroll_text_k">브랜드 디자인</p>
@@ -119,7 +122,6 @@
                         </div>
                     </li>
                     <li class="scroll_content">
-                        <img src="./패키지디자인_img.png" alt="" class="scroll_content_img">
                         <div class="slide_scroll_text_content_container">
                             <p class="slide_scroll_text_e">Copywriting</p>
                             <p class="slide_scroll_text_k">카피라이팅</p>
@@ -127,7 +129,6 @@
                         </div>
                     </li>
                     <li class="scroll_content">
-                        <img src="./웹디자인_img.png" alt="" class="scroll_content_img">
                         <div class="slide_scroll_text_content_container">
                             <p class="slide_scroll_text_e">Web design</p>
                             <p class="slide_scroll_text_k">웹디자인</p>
@@ -135,7 +136,6 @@
                         </div>
                     </li>
                     <li class="scroll_content">
-                        <img src="./패키지디자인_img.png" alt="" class="scroll_content_img">
                         <div class="slide_scroll_text_content_container">
                             <p class="slide_scroll_text_e">Logo Design</p>
                             <p class="slide_scroll_text_k">로고 디자인</p>
@@ -143,7 +143,6 @@
                         </div>
                     </li>
                     <li class="scroll_content">
-                        <img src="./패키지디자인_img.png" alt="" class="scroll_content_img">
                         <div class="slide_scroll_text_content_container">
                             <p class="slide_scroll_text_e">Detailed Page Design</p>
                             <p class="slide_scroll_text_k">상세페이지 디자인</p>
@@ -151,7 +150,6 @@
                         </div>
                     </li>
                     <li class="scroll_content">
-                        <img src="./패키지디자인_img.png" alt="" class="scroll_content_img">
                         <div class="slide_scroll_text_content_container">
                             <p class="slide_scroll_text_e">Content Design</p>
                             <p class="slide_scroll_text_k">컨텐츠 디자인</p>
@@ -159,7 +157,6 @@
                         </div>
                     </li>
                     <li class="scroll_content">
-                        <img src="./패키지디자인_img.png" alt="" class="scroll_content_img">
                         <div class="slide_scroll_text_content_container">
                             <p class="slide_scroll_text_e">Edit Design</p>
                             <p class="slide_scroll_text_k">편집 디자인</p>
@@ -167,7 +164,6 @@
                         </div>
                     </li>
                     <li class="scroll_content">
-                        <img src="./패키지디자인_img.png" alt="" class="scroll_content_img">
                         <div class="slide_scroll_text_content_container">
                             <p class="slide_scroll_text_e">Package Design</p>
                             <p class="slide_scroll_text_k">패키지 디자인</p>
@@ -196,13 +192,14 @@
                         <div class="inquiry_loop">* PUNTO:Designs that Make a Mark</div>
                         <div class="inquiry_loop">* PUNTO:Designs that Make a Mark</div>
                     </div>
-                    <div class="inquiry_loop_content">
+                    <!-- <div class="inquiry_loop_content">
                         <div class="inquiry_loop diff_color">* PUNTO:Designs that Make a Mark</div>
                         <div class="inquiry_loop diff_color">* PUNTO:Designs that Make a Mark</div>
                         <div class="inquiry_loop diff_color">* PUNTO:Designs that Make a Mark</div>
                         <div class="inquiry_loop diff_color">* PUNTO:Designs that Make a Mark</div>
-                    </div>
+                    </div> -->
             </div>
+
             <div class="inquiry_text_container">
                 <p class="inquiry_text_content"><strong class="text_point">프로젝트의 마지막과</strong><br><strong class="text_point">새로운 시작</strong>을 <strong class="text_point text_point_size_up">푼토</strong>와 <strong>함께</strong>하시는 건 어떨까요?</p>
                 <button class="inquiry_btn">함께하기</button>
@@ -244,11 +241,17 @@
         // makeSlider(document.querySelector('.my-slide'),2,4);
 
         const pScrollSection = document.querySelector('#punto_scroll_section');
-        const pScrollContainer = document.querySelector('.p_scroll_wrapper');
+        const pScrollWrapper = document.querySelector('.p_scroll_wrapper');
         const onePageContent = document.querySelectorAll('.scroll_content');
         const upFixedContainer = document.querySelector('.introduction_up_fixed_container');
+        const pScrollContainer = document.querySelector('.p_scroll_container');
+        const slideScrollTextContentContainer = document.getElementsByClassName('slide_scroll_text_content_container');
+        const scrollContent = document.getElementsByClassName('scroll_content');
+        const backgroundImagePlace =document.querySelector('.background_image_place');
+        const scrollContentImg = document.querySelectorAll('.scroll_content_img');
         let range;
         let isThrottled = false;
+
 
 
         window.addEventListener('wheel', () => {
@@ -271,7 +274,7 @@
 
 
         const init = () => {
-            range = pScrollContainer.getBoundingClientRect().width;
+            range = pScrollWrapper.getBoundingClientRect().width;
             pScrollSection.style.height = `${range}px`
         }
 
@@ -282,13 +285,13 @@
             const translateX = pScrollSection.getBoundingClientRect().top;
 
             if(translateX > 0){
-                pScrollContainer.style.transform = `translateX(${0}px)`
+                pScrollWrapper.style.transform = `translateX(${0}px)`
 
             }else if(translateX < window.innerWidth-range){
-                pScrollContainer.style.transform = `translateX(${window.innerWidth-range}px)`
+                pScrollWrapper.style.transform = `translateX(${window.innerWidth-range}px)`
 
             }else {
-                pScrollContainer.style.transform = `translateX(${translateX}px)`
+                pScrollWrapper.style.transform = `translateX(${translateX}px)`
             }
 
         })
@@ -317,7 +320,53 @@
         });
     });
 
+    // pScrollContainer.addEventListener('wheel', () => {
+    //         if(isThrottled) return;
 
+    //         isThrottled = true;
+
+    //         const Position = slideScrollTextContentContainer.getBoundingClientRect().left;
+
+    //         if(Position < window.innerWidth*2/3){
+    //             pScrollContainer.classList.add('active');
+    //         }else{
+    //             pScrollContainer.classList.remove('active');
+    //         }
+
+    //         setTimeout(() => {
+    //             isThrottled = false;
+    //         }, 100);
+    //     })
+
+    const observer = new IntersectionObserver((entries) =>{
+
+        entries.forEach((entry)=>{
+            if(entry.intersectionRatio > 0) {
+
+                // const imgIndex = entry.target.scrollContentImg
+                // console.log(imgIndex);
+
+            
+
+                // https://whales.tistory.com/53 <- 참고자료!
+                // 각각의 이미지에 투명도 조절
+
+                // const img = entry.target.querySelector('img')
+
+                // console.log(backgroundImagePlace);
+
+                img.style.opacity = 1;      
+            }
+        })
+    })
+
+    for(const content of backgroundImagePlace) {
+        observer.observe(content);
+    }
+
+
+
+        
     </script>
 </body>
 </html>
