@@ -184,22 +184,15 @@
             </div> -->
         </section>
 
-        <section id="puto_inquiry">
-            <div class="inquiry_loop_content_container">
-                    <div class="inquiry_loop_content">
-                        <div class="inquiry_loop">* PUNTO:Designs that Make a Mark</div>
-                        <div class="inquiry_loop">* PUNTO:Designs that Make a Mark</div>
-                        <div class="inquiry_loop">* PUNTO:Designs that Make a Mark</div>
-                        <div class="inquiry_loop">* PUNTO:Designs that Make a Mark</div>
-                    </div>
-                    <!-- <div class="inquiry_loop_content">
-                        <div class="inquiry_loop diff_color">* PUNTO:Designs that Make a Mark</div>
-                        <div class="inquiry_loop diff_color">* PUNTO:Designs that Make a Mark</div>
-                        <div class="inquiry_loop diff_color">* PUNTO:Designs that Make a Mark</div>
-                        <div class="inquiry_loop diff_color">* PUNTO:Designs that Make a Mark</div>
-                    </div> -->
+        <section id="second_loop">
+            <div class="second_loop_content_container">
+                <div class="second_loop_content">#Designs that Make a Mark</div>
+                <div class="second_loop_content">#Designs that Make a Mark</div>
+                <div class="second_loop_content">#Designs that Make a Mark</div>
             </div>
+        </section>
 
+        <section id="puto_inquiry">
             <div class="inquiry_text_container">
                 <p class="inquiry_text_content"><strong class="text_point">프로젝트의 마지막과</strong><br><strong class="text_point">새로운 시작</strong>을 <strong class="text_point text_point_size_up">푼토</strong>와 <strong>함께</strong>하시는 건 어떨까요?</p>
                 <button class="inquiry_btn">함께하기</button>
@@ -246,7 +239,6 @@
         const upFixedContainer = document.querySelector('.introduction_up_fixed_container');
         const pScrollContainer = document.querySelector('.p_scroll_container');
         const slideScrollTextContentContainer = document.getElementsByClassName('slide_scroll_text_content_container');
-        const scrollContent = document.getElementsByClassName('scroll_content');
         const backgroundImagePlace =document.querySelector('.background_image_place');
         const scrollContentImg = document.querySelectorAll('.scroll_content_img');
         let range;
@@ -338,27 +330,24 @@
     //         }, 100);
     //     })
 
+    const scrollContent = document.querySelectorAll('.scroll_content');
+
+    const scrollContentImages = [
+        'url("./a1.png")',
+        'url("./a2.png")'
+    ];
+
     const observer = new IntersectionObserver((entries) =>{
 
         entries.forEach((entry)=>{
             if(entry.intersectionRatio > 0) {
-
-                // const imgIndex = entry.target.scrollContentImg
-                // console.log(imgIndex);
-
-            
-
-                // https://whales.tistory.com/53 <- 참고자료!
-                // 각각의 이미지에 투명도 조절
-
-                // const img = entry.target.querySelector('img')
-
-                // console.log(backgroundImagePlace);
-
-                img.style.opacity = 1;      
+                const index = Array.from(scrollContent).indexOf(entry.target);
+                entry.target.style.backgroundImage = scrollContentImages[index];   
+            } else {
+                entry.target.style.backgroundImage = 'none';
             }
-        })
-    })
+        });
+    });
 
     for(const content of backgroundImagePlace) {
         observer.observe(content);
