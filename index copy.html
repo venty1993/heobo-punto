@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>punto.project</title>
     <link rel="stylesheet" href="./punto.html/reset.css">
+    <link rel="stylesheet" href="./punto.html/makeSlider.css">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -107,8 +108,14 @@
         <section id="punto_scroll_section">
             <div class="p_scroll_container">
                 <div class="background_image_place">
-                    <img src="./패키지디자인_img.png" alt="" class="scroll_content_img">
-                    <img src="./img/a1.png" alt="" class="scroll_content_img">
+                    <img src="bird-8922501_1280.jpg" alt="" class="scroll_content_img">
+                    <img src="sunrise-8901014_1280.jpg" alt="" class="scroll_content_img">
+                    <img src="bird-8922501_1280.jpg" alt="" class="scroll_content_img">
+                    <img src="sunrise-8901014_1280.jpg" alt="" class="scroll_content_img">
+                    <img src="bird-8922501_1280.jpg" alt="" class="scroll_content_img">
+                    <img src="sunrise-8901014_1280.jpg" alt="" class="scroll_content_img">
+                    <img src="bird-8922501_1280.jpg" alt="" class="scroll_content_img">
+                    <img src="sunrise-8901014_1280.jpg" alt="" class="scroll_content_img">
                 </div>
                 <ul class="p_scroll_wrapper">
                     <li class="main_scroll_content">
@@ -172,23 +179,85 @@
                     </li>
                 </ul>
             </div>
-            <!-- 모바일 사이즈일 경우 슬라이더 코드 짜기 -->
-            <!-- <div class="my-slide">
-                <a href="" class="content">
+        </section>
+
+        <section id="mobile_slide">
+            <div class="my-slide">
+                <div class="content">
+                    <img src="a1.png" alt="" class="content_img">
                     <div class="text_container">
                         <p class="slide_scroll_text_e">Brand Design</p>
                         <p class="slide_scroll_text_k">브랜드 디자인</p>
                         <button class="slide_scroll_btn">더보기</button>
                     </div>
-                </a>
-            </div> -->
+                </div>
+                <div class="content">
+                    <img src="a2.png" alt="" class="content_img">
+                    <div class="text_container">
+                        <p class="slide_scroll_text_e">Brand Design</p>
+                        <p class="slide_scroll_text_k">브랜드 디자인</p>
+                        <button class="slide_scroll_btn">더보기</button>
+                    </div>
+                </div>
+                <div class="content">
+                    <img src="a1.png" alt="" class="content_img">
+                    <div class="text_container">
+                        <p class="slide_scroll_text_e">Brand Design</p>
+                        <p class="slide_scroll_text_k">브랜드 디자인</p>
+                        <button class="slide_scroll_btn">더보기</button>
+                    </div>
+                </div>
+                <div class="content">
+                    <img src="a2.png" alt="" class="content_img">
+                    <div class="text_container">
+                        <p class="slide_scroll_text_e">Brand Design</p>
+                        <p class="slide_scroll_text_k">브랜드 디자인</p>
+                        <button class="slide_scroll_btn">더보기</button>
+                    </div>
+                </div>
+                <div class="content">
+                    <img src="a1.png" alt="" class="content_img">
+                    <div class="text_container">
+                        <p class="slide_scroll_text_e">Brand Design</p>
+                        <p class="slide_scroll_text_k">브랜드 디자인</p>
+                        <button class="slide_scroll_btn">더보기</button>
+                    </div>
+                </div>
+                <div class="content">
+                    <img src="a2" alt="" class="content_img">
+                    <div class="text_container">
+                        <p class="slide_scroll_text_e">Brand Design</p>
+                        <p class="slide_scroll_text_k">브랜드 디자인</p>
+                        <button class="slide_scroll_btn">더보기</button>
+                    </div>
+                </div>
+                <div class="content">
+                    <img src="a1.png" alt="" class="content_img">
+                    <div class="text_container">
+                        <p class="slide_scroll_text_e">Brand Design</p>
+                        <p class="slide_scroll_text_k">브랜드 디자인</p>
+                        <button class="slide_scroll_btn">더보기</button>
+                    </div>
+                </div>
+                <div class="content">
+                    <img src="a2.png" alt="" class="content_img">
+                    <div class="text_container">
+                        <p class="slide_scroll_text_e">Brand Design</p>
+                        <p class="slide_scroll_text_k">브랜드 디자인</p>
+                        <button class="slide_scroll_btn">더보기</button>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="second_loop">
-            <div class="second_loop_content_container">
-                <div class="second_loop_content">#Designs that Make a Mark</div>
-                <div class="second_loop_content">#Designs that Make a Mark</div>
-                <div class="second_loop_content">#Designs that Make a Mark</div>
+            <div class="rotate_container">
+                <div class="second_loop_infinite_container">
+                    <div class="second_loop_content">#Designs that Make a Mark</div>
+                    <div class="second_loop_content">#Designs that Make a Mark</div>
+                    <div class="second_loop_content">#Designs that Make a Mark</div>
+                    <div class="second_loop_content">#Designs that Make a Mark</div>
+                </div>
             </div>
         </section>
 
@@ -229,7 +298,7 @@
             </div>
         </div>
     </footer>
-    <script src="makeSlider.js"></script>
+    <script src="./punto.html/makeSlider.js"></script>
     <script>
         // makeSlider(document.querySelector('.my-slide'),2,4);
 
@@ -239,7 +308,6 @@
         const upFixedContainer = document.querySelector('.introduction_up_fixed_container');
         const pScrollContainer = document.querySelector('.p_scroll_container');
         const slideScrollTextContentContainer = document.getElementsByClassName('slide_scroll_text_content_container');
-        const backgroundImagePlace =document.querySelector('.background_image_place');
         const scrollContentImg = document.querySelectorAll('.scroll_content_img');
         let range;
         let isThrottled = false;
@@ -330,30 +398,32 @@
     //         }, 100);
     //     })
 
+    
     const scrollContent = document.querySelectorAll('.scroll_content');
 
-    const scrollContentImages = [
-        'url("./a1.png")',
-        'url("./a2.png")'
-    ];
+    const backgroundImagePlace =document.querySelector('.background_image_place');
+
+    scrollContentImg
 
     const observer = new IntersectionObserver((entries) =>{
 
         entries.forEach((entry)=>{
-            if(entry.intersectionRatio > 0) {
-                const index = Array.from(scrollContent).indexOf(entry.target);
-                entry.target.style.backgroundImage = scrollContentImages[index];   
-            } else {
-                entry.target.style.backgroundImage = 'none';
+            if(entry.intersectionRatio) {
+
+                for(let i = 0 ; i < backgroundImagePlace.childElementCount ; i ++) {
+                    backgroundImagePlace.children[i].style.opacity = `0`;
+                }
+                backgroundImagePlace.children[entry.target.user_index].style.opacity = `1`;
+            }else {
+                backgroundImagePlace.children[entry.target.user_index].style.opacity = `0`;
             }
-        });
-    });
-
-    for(const content of backgroundImagePlace) {
-        observer.observe(content);
+        })
+    })
+    
+    for(let i = 0 ; i <scrollContent.length ; i ++) {
+        observer.observe(scrollContent[i])
+        scrollContent[i].user_index=i;
     }
-
-
 
         
     </script>
