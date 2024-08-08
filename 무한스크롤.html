@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #333;
+    color: white;
+    font-size: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.marquee {
+    display: inline-block;
+    white-space: nowrap;
+    will-change: transform;
+}
+
+.marquee span {
+    padding: 0 2rem;
+    display: inline-block;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="marquee-container">
+        <div class="marquee">
+            <span>이것은 무한으로 흐르는 텍스트입니다. </span>
+        </div>
+    </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const marquee = document.querySelector('.marquee');
+    const span = marquee.querySelector('span');
+    const spanWidth = span.offsetWidth;
+    const repeatCount = Math.ceil(window.innerWidth / spanWidth) + 1;
+
+    // 텍스트를 여러 번 복제하여 추가
+    for (let i = 0; i < repeatCount; i++) {
+        const clone = span.cloneNode(true);
+        marquee.appendChild(clone);
+    }
+
+    let startPosition = 0;
+
+    function animate() {
+        startPosition -= 1; // 속도 조절 (숫자를 낮추면 더 느려짐)
+        if (startPosition <= -spanWidth) {
+            startPosition += spanWidth;
+        }
+        marquee.style.transform = `translateX(${startPosition}px)`;
+        requestAnimationFrame(animate);
+    }
+
+    // 애니메이션 시작
+    animate();
+
+    // 창 크기 변경에 따른 재설정
+    window.addEventListener('resize', function() {
+        startPosition = 0;
+    });
+});
+
+
+    </script>
+</body>
+</html>

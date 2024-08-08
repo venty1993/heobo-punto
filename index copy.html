@@ -251,6 +251,11 @@
         </section>
 
         <section id="second_loop">
+            <div class="third_rotate_container">
+                <div class="third_loop_infinite_container">
+                    <div class="third_loop_content">welcome to punto project!</div>
+                </div>
+            </div>
             <div class="rotate_container">
                 <div class="second_loop_infinite_container">
                     <div class="second_loop_content">#Designs that Make a Mark</div>
@@ -424,6 +429,37 @@
         observer.observe(scrollContent[i])
         scrollContent[i].user_index=i;
     }
+
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        const thirdLoopInfiniteContainer = document.querySelector('.third_loop_infinite_container');
+        const thirdLoopContent = document.querySelector('.third_loop_content');
+        const thirdLoopContentWidth = thirdLoopContent.offsetWidth;
+        const repeatCount = Math.ceil(window.innerWidth / thirdLoopContentWidth) + 1;
+        
+        for (let i = 0; i < repeatCount; i++) {
+            const clone = thirdLoopContent.cloneNode(true);
+            thirdLoopInfiniteContainer.appendChild(clone);
+        }
+    
+        let startPosition = 0;
+    
+        function loopAnimate() {
+            startPosition -= 1; // 속도 조절
+            if (startPosition <= -thirdLoopContentWidth) {
+                startPosition += thirdLoopContentWidth;
+            }
+            thirdLoopInfiniteContainer.style.transform = `translateX(${startPosition}px)`;
+            requestAnimationFrame(loopAnimate);
+        }
+    
+        loopAnimate();
+    
+        window.addEventListener('resize', function () {
+            startPosition = 0;
+        });
+    });
+
 
         
     </script>
