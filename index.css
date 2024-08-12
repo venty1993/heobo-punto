@@ -60,6 +60,10 @@ body{
     display: none;
 }
 
+.header_menu_icon_container{
+    display: none;
+}
+
 #punto_main_intro{
     margin: 0 auto; 
     padding: 0 32px;

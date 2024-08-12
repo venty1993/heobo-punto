@@ -413,7 +413,7 @@
     const observer = new IntersectionObserver((entries) =>{
 
         entries.forEach((entry)=>{
-            if(entry.intersectionRatio) {
+            if(entry.intersectionRatio > 0) {
 
                 for(let i = 0 ; i < backgroundImagePlace.childElementCount ; i ++) {
                     backgroundImagePlace.children[i].style.opacity = `0`;
@@ -425,7 +425,7 @@
         })
     })
     
-    for(let i = 0 ; i <scrollContent.length ; i ++) {
+    for(let i = 1 ; i <scrollContent.length ; i ++) {
         observer.observe(scrollContent[i])
         scrollContent[i].user_index=i;
     }
