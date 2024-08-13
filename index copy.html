@@ -36,13 +36,6 @@
                         </clipPath>
                         </defs>
                     </svg>
-                    <ul class="menu_icon_click_btn_container">
-                        <li class="menu_icon_click_btn_content"><a href="#">회사소개</a></li>
-                        <li class="menu_icon_click_btn_content"><a href="#">포트폴리오</a></li>
-                        <li class="menu_icon_click_btn_content"><a href="#">서비스</a></li>
-                        <li class="menu_icon_click_btn_content"><a href="#">문의하기</a></li>
-                        <li class="menu_icon_click_btn_content"><a href="#">고객후기</a></li>
-                    </ul>
                 </button>                       
             </nav>
         </div> 
@@ -251,11 +244,6 @@
         </section>
 
         <section id="second_loop">
-            <div class="third_rotate_container">
-                <div class="third_loop_infinite_container">
-                    <div class="third_loop_content">welcome to punto project!</div>
-                </div>
-            </div>
             <div class="rotate_container">
                 <div class="second_loop_infinite_container">
                     <div class="second_loop_content">#Designs that Make a Mark</div>
@@ -430,35 +418,7 @@
         scrollContent[i].user_index=i;
     }
 
-    
-    document.addEventListener('DOMContentLoaded', function () {
-        const thirdLoopInfiniteContainer = document.querySelector('.third_loop_infinite_container');
-        const thirdLoopContent = document.querySelector('.third_loop_content');
-        const thirdLoopContentWidth = thirdLoopContent.offsetWidth;
-        const repeatCount = Math.ceil(window.innerWidth / thirdLoopContentWidth) + 1;
-        
-        for (let i = 0; i < repeatCount; i++) {
-            const clone = thirdLoopContent.cloneNode(true);
-            thirdLoopInfiniteContainer.appendChild(clone);
-        }
-    
-        let startPosition = 0;
-    
-        function loopAnimate() {
-            startPosition -= 1; // 속도 조절
-            if (startPosition <= -thirdLoopContentWidth) {
-                startPosition += thirdLoopContentWidth;
-            }
-            thirdLoopInfiniteContainer.style.transform = `translateX(${startPosition}px)`;
-            requestAnimationFrame(loopAnimate);
-        }
-    
-        loopAnimate();
-    
-        window.addEventListener('resize', function () {
-            startPosition = 0;
-        });
-    });
+
 
 
         

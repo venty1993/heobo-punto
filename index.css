@@ -45,7 +45,7 @@ body{
 .header_nav_content_container{
     min-width: 500px; 
     height: 100%;
-    display: flex; 
+    display: none; 
     align-items: center; 
     justify-content: center; 
     gap: 32px;
@@ -56,12 +56,8 @@ body{
     font-weight: bold;
 }
 
-.menu_icon_click_btn_container{
-    display: none;
-}
-
 .header_menu_icon_container{
-    display: none;
+    display: block;
 }
 
 #punto_main_intro{
