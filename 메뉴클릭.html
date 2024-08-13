@@ -4,18 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../p2/punto.html/reset.css">
+    <link rel="stylesheet" href="punto.html/reset.css">
     <style>
+
+        img{
+            display: block;
+            width: 100%;
+        }
+
+        button{
+            all: unset;
+            cursor: pointer; 
+        }
+
+        a{
+            text-decoration: none;
+            color: white;
+            cursor:pointer;
+        }
 
         body{
             background-color: #141414;
+            height: 3000px;
         }
 
         #intro{
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            box-sizing: border-box;
         }
+
         .nav_container{
             width: 100%;
             max-width: 1280px;
@@ -24,12 +44,66 @@
             justify-content: space-between;
         }
 
+        .nav_total_menu_container{
+            display: flex;
+            
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+
+            background-color: #141414ad;
+            box-sizing: border-box;
+
+            transform: translateX(100%);
+            transition: 0.6s;
+        }
+
         .nav_menu_container{
-            display: none;
+            width: 75vw;
+            height: 100vh;
+
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 16px;
+
+            background-color: #141414;
+        }
+
+        
+        .nav_menu_text_container{
+            min-width: 500px;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            font-size: 26px;
+            gap: 60px;
+        }
+
+        .menu_close_icon_container{
+            width: 30px;
+            height: 30px;
+
+            position: absolute;
+            top: 5%;
+            right: 15%;
+            color: white;
+        }
+
+        .menu_close_icon{
+            width: 100%;
+            height: 100%;
+            cursor:pointer;
         }
         
         .menu_icon_container{
@@ -43,13 +117,11 @@
             display: block;
         }
 
-        .nav_menu_container .active{
-            display: flex;
+        .nav_total_menu_container.active{
+            transform: none;
         }
 
-        .menu_icon_container .active {
-            display: flex;
-        }
+
 
 
     </style>
@@ -75,32 +147,54 @@
                                 <rect width="30" height="30" fill="white"/>
                             </clipPath>
                         </defs>
-                    </svg>
-
-                    <div class="click_content_container">
-                        <ul class="nav_menu_container">
+                    </svg>                    
+                </button>
+                <div class="nav_total_menu_container">
+                    <ul class="nav_menu_container">
+                        <div class="nav_menu_text_container">
                             <li class="nav_menu_content"><a href="#" class="none_decoration">회사소개</a></li>
                             <li class="nav_menu_content"><a href="#" class="none_decoration">포트폴리오</a></li>
                             <li class="nav_menu_content"><a href="#" class="none_decoration">서비스</a></li>
                             <li class="nav_menu_content"><a href="#" class="none_decoration">문의하기</a></li>
                             <li class="nav_menu_content"><a href="#" class="none_decoration">고객후기</a></li>
-                        </ul>
-                    </div>
-                </button>
+                        </div>
+    
+                        <bu class="menu_close_icon_container">
+                            <svg class="menu_close_icon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024"><path fill="currentColor" d="M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504L738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512L828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496L285.696 828.8a64 64 0 0 1-90.496-90.496L421.504 512L195.2 285.696a64 64 0 0 1 0-90.496"/></svg>
+                        </bu>
+                    </ul>
+                </div>
         </nav>
     </header>
 
     <script>
-        const btn = document.querySelector('.menu_icon_container')
+        const openBtn = document.querySelector('.menu_icon_container')
+        const closeBtn = document.querySelector('.menu_close_icon_container')
+        const menuFullPage = document.querySelector('.nav_total_menu_container')
         
-        btn.addEventListener('click',()=>{
-            const menu = document.querySelector('.nav_menu_container')
-            const icon = document.querySelector('.menu_icon_container')
-
-            menu.classList.toggle('active')
-            icon.classList.toggle('active')
+        openBtn.addEventListener('click',()=>{
+            menuFullPage.classList.toggle('active')
         })
-    </script>
 
+        closeBtn.addEventListener('click',()=>{
+            menuClose();
+        })
+
+        window.addEventListener('click',(e)=>{
+            if(e.target.classList.contains('active')){
+                menuFullPage.classList.remove('active')
+            }
+        })
+
+
+        
+        function menuClose(){
+            menuFullPage.classList.remove('active')
+        }
+
+        
+        </script>
+
+<!-- // 바깥쪽 클릭했을때 닫히기 -->
 </body>
 </html>
