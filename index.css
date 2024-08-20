@@ -83,14 +83,13 @@ body{
 
 
 .nav_menu_text_container{
-    min-width: 500px;
     height: 100%;
 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    font-size: 26px;
+    font-size: 25px;
     gap: 60px;
 }
 
@@ -296,99 +295,6 @@ body{
     transition-delay: 0.6s;
 }
 
-/* .introduction_service_field_container{
-    max-width: 848px; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    gap: 60px;
-}
-
-.service_field_text_container{
-    display: flex; 
-    align-items: center; 
-    justify-content: space-between;
-    font-size: 25px; 
-    font-weight: 600; 
-    color: white;
-}
-
-.service_field_text_title{
-    display: flex; 
-    align-items: center;
-}
-
-.service_field_text_title::after{
-    content: '';
-    display: none;
-
-    width: 10px; 
-    height: 10px;
-    border: 2px solid white; 
-    border-bottom: 0px; 
-    border-left: 0px;
-    transform: rotate(45deg);
-}
-
-.service_field_text{
-    display: flex; 
-    align-items: center;
-    gap: 10px;
-}
-
-.service_field_text::after{
-    content: '';
-    display: block;
-
-    width: 15px; 
-    height: 15px;
-    border: 2px solid white; 
-    border-bottom: 0px; 
-    border-left: 0px;
-    transform: rotate(45deg);
-}
-
-
-.service_field_content_container{
-    max-width: 848px; 
-    display: flex; 
-    flex-wrap: wrap; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 16px;
-
-
-}
-
-.open_service_field_content{
-    max-width: 184px; 
-    min-height: 200px;
-    display: flex; 
-    flex-wrap: wrap; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 16px;
-    padding: 8px;
-}
-
-.service_field_img{
-    width: 125px;
-    object-fit: contain;
-    
-}
-
-.service_field_kind{
-    width: 100%; 
-    height: 100%;
-    padding: 5px; 
-    font-size: 18px; 
-    font-weight: 500; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-    color: white;
-} */
-
 #point_value{
     width: 100%;
     height: 100vh;
@@ -411,7 +317,7 @@ body{
     justify-content: center;
     max-width: 1280px;
     width: 100%;
-    margin-bottom: 130px;
+    margin-bottom: 100px;
 }
 
 .value_title_contianer{
@@ -462,20 +368,8 @@ body{
     font-size: 20px;
     font-weight: 800;
     text-align: center;
-    margin-bottom: 130px;
+    margin-bottom: 100px;
 }
-
-/* .value_btn{
-    position: relative;
-    font-size: 16px;
-    font-weight: bold;
-    width: 90px;
-    height: 100%;
-    padding: 10px;
-    border: 1px solid #141414;
-    border-radius: 50px;
-    text-align: center;
-} */
 
 .introduction_content_text_contaienr{
     text-align: center; 
@@ -505,11 +399,6 @@ body{
     height: 100vh;
     top: 0;
 }
-/* 
-.p_scroll_container.active{
-    background-image: url(./웹디자인_img.png);
-} */
-
 
 .p_scroll_wrapper{
     height: 100vh;
@@ -607,56 +496,24 @@ body{
     opacity: 0;
     position: absolute;
     top: 0;
+
+    filter: brightness(0.4);
 }
 
 #mobile_slide{
     display: none;
     width: 100%;
-    height: 100vh;
-}
-
-/* .slide_scroll_btn::after{
-    position: absolute(50%);
-    content: "";
-    width: 20px;
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background-color: aqua;
-    transform: translate(-50%, -50%);
-    animation: criss-cross-left 0.8s reverse;
-} */
-
-/* .scroll_content:hover > img{
-    transform: scale(1.2)
-} */
-
-/* .scroll_content_img{
-    opacity: 0;
-    filter: brightness(0.5);
-    object-fit: cover;
     height: 100%;
-    transition: 0.4s;
-} */
-
-/* &:hover {
-  color: tint($btn-color, 75%);
-
-  &:before,
-  &:after {
-    // @include size($btn-width);
-  }
-  
-  &:before {
-    animation: criss-cross-left 0.8s both;
-    animation-direction: alternate;
-  }
-  
-  &:after {
-    animation: criss-cross-right 0.8s both;
-    animation-direction: alternate;
-  }
 }
-} */
+
+.mobile_slide_main_scroll_content{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
 
 #second_loop{
     overflow: hidden;
@@ -871,7 +728,8 @@ body{
 }
 
 .sns_content_icon{
-    width: 50px;
+    width: 30px;
+    border-radius: 50%;
 }
 
 @keyframes roll {
@@ -890,84 +748,102 @@ body{
 }
 
 @media screen and (max-width: 1300px){
+
     .main_intro_title{
-        font-size: 65px;
+        font-size: 70px;
     }
-    
     .main_intro_slogan_E{
         font-size: 25px;
     }
-    
+
     .main_intro_slogan_K{
         font-size: 20px;
     }
-    
+
+    .loop_content{
+        font-size: 70px;
+    }
+
     .introduction_text{
-        font-size: 30px;
+        font-size: 25px;
     }
-    
+
     .introduction_text_title{
-        font-size: 50px;
+        font-size: 45px;
     }
-    
+
     .up_fixed_content{
+        font-size: 18px;
+    }
+
+    #punto_introduction{
+        gap: 65px;
+    }
+
+    .introduction_content_text_contaienr{
         font-size: 20px;
     }
-    
-    /* .service_field_text_container{
-        font-size: 25px;
-    } */
-    
-    /* .service_field_kind{
-        font-size: 18px;
-    } */
-    
-    .introduction_content_text_contaienr{
-        font-size: 23px;
-        /* font-size : 20px; */
-    }
-    
+
     .introduction_content_text_contaienr>.text_point{
         font-size: 30px;
     }
-    
-    .slide_main_text{
-        font-size: 30px;
-    }
-    
-    .slide_main_text>.text_point{
-        font-size: 45px;
-    } 
-    
-    .slide_scroll_text_e{
-        font-size: 20px;
-            
-    }
-    
-    .slide_scroll_text_k{
-        font-size: 35px;
-    }
-    
-    .slide_scroll_btn {
-        font-size: 12px;
-        width: 80px;
-    }
-    
-    .inquiry_text_content{
-        font-size: 30px;
-    }
-    .inquiry_text_content>.text_point_size_up{
+
+    .value_text{
         font-size: 40px;
     }
-    
-    .inquiry_btn{
-        font-size: 12px;
-        width: 95px;
+
+    .slide_main_text{
+        font-size: 25px;
     }
-    
-}
+
+    .slide_main_text>.text_point{
+        font-size: 45px;
+    }
+
+    .slide_scroll_text_e {
+        font-size: 16px;
+    }
+
+    .slide_scroll_text_k{
+        font-size: 32px;
+    }
+
+    .slide_scroll_btn{
+        font-size: 12px;
+    }
+
+    .second_loop_content{
+        font-size: 50px;
+    }
+
+    .inquiry_text_content{
+        font-size: 25px;
+    }
+
+    .inquiry_text_content>.text_point_size_up{
+        font-size: 32px;
+    }
+
+    .inquiry_btn{
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    #puto_inquiry{
+        height: 40vh;
+    }
+
+    }
 
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 760px){
+
+    #punto_scroll_section{
+        display: none;
+    }
+
+    #mobile_slide{
+        display: block;
+    }
 
 }
