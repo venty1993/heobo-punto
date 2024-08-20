@@ -57,14 +57,14 @@
                     <P class="main_intro_slogan_E">I'LL PUT THE FINISHING TOUCHES<br>ON YOUR PROJECT FOR YOU</P>
                     <P class="main_intro_slogan_K">당신의 프로젝트에 마침표를 찍어드리겠습니다.</P>
                 </div>
+            </div>
+        </section>
 
-                <div class="main_intro_loop_container">
-                    <div class="loop_content_container">
-                        <div class="loop_content">#PUNTO.PROJECT</div>
-                        <div class="loop_content">#PUNTO.PROJECT</div>
-                        <div class="loop_content">#PUNTO.PROJECT</div>
-                    </div>
-                </div>
+        <section id="main_intro_loop_container">
+            <div class="loop_content_container">
+                <div class="loop_content">#PUNTO.PROJECT</div>
+                <div class="loop_content">#PUNTO.PROJECT</div>
+                <div class="loop_content">#PUNTO.PROJECT</div>
             </div>
         </section>
 
@@ -95,14 +95,19 @@
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis autem eaque ipsum eius dolores itaque quis! Tempora numquam dolorum mollitia?</p>
                 </div>
                 <div class="value_container">
-                    <div class="value_box" data_word="Precision" data_description="완벽한 디테일로 클라이언트의 브랜드와 비전을 명확히 반영하는 디자인을 제공">P</div>
-                    <div class="value_box" data_word="Uniqueness" data_description="창의적인 아이디어로 차별화된 디자인을 제공">U</div>
-                    <div class="value_box" data_word="Novelty" data_description="최신 트렌드를 반영하여 항상 새롭고 혁신적인 디자인을 제안">N</div>
-                    <div class="value_box" data_word="Trustworthiness" data_description="신뢰를 바탕으로 클라이언트와 장기적인 협력 관계 구축">T</div>
-                    <div class="value_box" data_word="Optimization" data_description="요구와 기대를 최상의 방식으로 충족시키기 위해 최적의 디자인 솔루션 제공">O</div>
+                    <div class="value_box" data_word="Precision">P</div>
+                    <div class="value_box" data_word="Uniqueness">U</div>
+                    <div class="value_box" data_word="Novelty">N</div>
+                    <div class="value_box" data_word="Trustworthiness">T</div>
+                    <div class="value_box" data_word="Optimization">O</div>
                 </div>
-                <div id="description"></div>
-                <!-- <div class="value_btn">더보기</div> -->
+                <div id="description">
+                    <p class="data_description">완벽한 디테일로 클라이언트의 브랜드와 비전을 명확히 반영하는 디자인을 제공</p>
+                    <p class="data_description">창의적인 아이디어로 차별화된 디자인을 제공</p>
+                    <p class="data_description">최신 트렌드를 반영하여 항상 새롭고 혁신적인 디자인을 제안</p>
+                    <p class="data_description">신뢰를 바탕으로 클라이언트와 장기적인 협력 관계 구축</p>
+                    <p class="data_description">요구와 기대를 최상의 방식으로 충족시키기 위해 최적의 디자인 솔루션 제공</p>
+                </div>
             </div>
         </section>
         
@@ -327,7 +332,7 @@
 
             const topPosition = upFixedContainer.getBoundingClientRect().top;
 
-            if(topPosition < window.innerHeight*2/3){
+            if(topPosition < window.innerHeight){
                 upFixedContainer.classList.add('active');
             }else{
                 upFixedContainer.classList.remove('active');
@@ -364,7 +369,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         const boxes = document.querySelectorAll('.value_box');
-        const description = document.getElementById('description');
+        const description = document.getElementsByClassName('date_description');
 
         boxes.forEach(box => {
             const letter = box.textContent;
@@ -386,23 +391,14 @@
         });
     });
 
-    // pScrollContainer.addEventListener('wheel', () => {
-    //         if(isThrottled) return;
 
-    //         isThrottled = true;
+    // document.addEventListener('DOMContentLoaded',()=>{
+    //     const valueBox = document.querySelectorAll('.value_box')
+    //     const dateDescription = document.querySelectorAll('.date_description')
 
-    //         const Position = slideScrollTextContentContainer.getBoundingClientRect().left;
+        
 
-    //         if(Position < window.innerWidth*2/3){
-    //             pScrollContainer.classList.add('active');
-    //         }else{
-    //             pScrollContainer.classList.remove('active');
-    //         }
-
-    //         setTimeout(() => {
-    //             isThrottled = false;
-    //         }, 100);
-    //     })
+    // })
 
     
     const scrollContent = document.querySelectorAll('.scroll_content');
