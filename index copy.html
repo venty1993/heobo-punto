@@ -188,78 +188,6 @@
             </div>
         </section>
 
-        <!-- <section id="mobile_slide">
-            <li class="mobile_slide_main_scroll_content">
-                <p class="slide_main_text"><strong class="text_point">punto.</strong>는 마침표를 뜻하지만,<br>마침표는<strong class="text_point">또 다른 시작을 의미</strong>합니다</p>
-            </li>
-            <div class="my-slide">
-                <div class="content">
-                    <img src="./punto.html/ponto_img/브랜딩.png" alt="" class="content_img">
-                    <div class="text_container">
-                        <p class="slide_scroll_text_e">Brand Design</p>
-                        <p class="slide_scroll_text_k">브랜드 디자인</p>
-                        <button class="slide_scroll_btn">더보기</button>
-                    </div>
-                </div>
-                <div class="content">
-                    <img src="./punto.html/ponto_img/카피라이팅.png" alt="" class="content_img">
-                    <div class="text_container">
-                        <p class="slide_scroll_text_e">Copywriting</p>
-                        <p class="slide_scroll_text_k">카피라이팅</p>
-                        <button class="slide_scroll_btn">더보기</button>
-                    </div>
-                </div>
-                <div class="content">
-                    <img src="./punto.html/ponto_img/웹.png" alt="" class="content_img">
-                    <div class="text_container">
-                        <p class="slide_scroll_text_e">Web design</p>
-                        <p class="slide_scroll_text_k">웹디자인</p>
-                        <button class="slide_scroll_btn">더보기</button>
-                    </div>
-                </div>
-                <div class="content">
-                    <img src="./punto.html/ponto_img/로고.png" alt="" class="content_img">
-                    <div class="text_container">
-                        <p class="slide_scroll_text_e">Logo Design</p>
-                        <p class="slide_scroll_text_k">로고 디자인</p>
-                        <button class="slide_scroll_btn">더보기</button>
-                    </div>
-                </div>
-                <div class="content">
-                    <img src="./punto.html/ponto_img/상세페이지.png" alt="" class="content_img">
-                    <div class="text_container">
-                        <p class="slide_scroll_text_e">Detailed Page Design</p>
-                        <p class="slide_scroll_text_k">상세페이지 디자인</p>
-                        <button class="slide_scroll_btn">더보기</button>
-                    </div>
-                </div>
-                <div class="content">
-                    <img src="./punto.html/ponto_img/컨텐츠.png" alt="" class="content_img">
-                    <div class="text_container">
-                        <p class="slide_scroll_text_e">Content Design</p>
-                        <p class="slide_scroll_text_k">컨텐츠 디자인</p>
-                        <button class="slide_scroll_btn">더보기</button>
-                    </div>
-                </div>
-                <div class="content">
-                    <img src="./punto.html/ponto_img/편집.png" alt="" class="content_img">
-                    <div class="text_container">
-                        <p class="slide_scroll_text_e">Edit Design</p>
-                        <p class="slide_scroll_text_k">편집 디자인</p>
-                        <button class="slide_scroll_btn">더보기</button>
-                    </div>
-                </div>
-                <div class="content">
-                    <img src="./punto.html/ponto_img/패키지.png" alt="" class="content_img">
-                    <div class="text_container">
-                        <p class="slide_scroll_text_e">Package Design</p>
-                        <p class="slide_scroll_text_k">패키지 디자인</p>
-                        <button class="slide_scroll_btn">더보기</button>
-                    </div>
-                </div>
-            </div>
-        </section> -->
-
         <section id="second_loop">
             <div class="rotate_container">
                 <div class="second_loop_infinite_container">
@@ -370,24 +298,33 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         const boxes = document.querySelectorAll('.value_box');
-        const description = document.getElementsByClassName('date_description');
+        const description = document.getElementsByClassName('data_description');
 
-        boxes.forEach(box => {
+        boxes.forEach((box,index) => {
             const letter = box.textContent;
             const word = box.getAttribute('data_word');
             const wordDescription = box.getAttribute('data_description');
             box.innerHTML = `<span class="letter">${letter}</span><span class="hidden word">${letter}${word.slice(1)}</span>`;
-            box.addEventListener('click', () => {
-                boxes.forEach(b => {
-                    b.style.width = '256px'; // Reset all boxes to original width
-                    b.querySelector('.letter').classList.remove('hidden'); // Show letter in all boxes
-                    b.querySelector('.word').classList.add('hidden'); // Hide word in all boxes
-                });
 
-                box.style.width = '768px'; // Expand clicked box
-                box.querySelector('.letter').classList.add('hidden'); // Hide letter in clicked box
-                box.querySelector('.word').classList.remove('hidden'); // Show word in clicked box
-                description.textContent = wordDescription; // Show description
+            box.addEventListener('click', () => {
+
+
+                if(box.classList.contains('active')){
+                    box.classList.remove('active');
+                    description[index].classList.remove('active');
+                }else{
+                    boxes.forEach((box,index) => {
+                        box.classList.remove('active')
+                        description[index].classList.remove('active')
+                    });
+    
+                    box.classList.add('active')
+                    description[index].classList.add('active')
+    
+                    // box.querySelector('.letter').classList.add('hidden'); // Hide letter in clicked box
+                    // box.querySelector('.word').classList.remove('hidden'); // Show word in clicked box
+                    // description.textContent = wordDescription; // Show description
+                }
             });
         });
     });
