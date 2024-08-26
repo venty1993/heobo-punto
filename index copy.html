@@ -384,17 +384,17 @@
     // })
 
     
-    const scrollContent = document.querySelectorAll('.scroll_content');
+    const scrollContent = document.querySelectorAll('.slide_scroll_text_content_container');
 
     const backgroundImagePlace =document.querySelector('.background_image_place');
 
     scrollContentImg
 
     const observer = new IntersectionObserver((entries) =>{
-
+    
         entries.forEach((entry)=>{
-            if(entry.intersectionRatio > 0) {
-
+            
+            if(entry.isIntersecting) {
                 for(let i = 0 ; i < backgroundImagePlace.childElementCount ; i ++) {
                     backgroundImagePlace.children[i].style.opacity = `0`;
                 }
@@ -403,8 +403,12 @@
                 backgroundImagePlace.children[entry.target.user_index].style.opacity = `0`;
             }
         })
-    })
-    
+    }, {
+        root:null,
+        rootMargin: '0px',
+        threshold: 1
+    });
+
     for(let i = 0 ; i <scrollContent.length ; i ++) {
         observer.observe(scrollContent[i])
         scrollContent[i].user_index=i;

@@ -309,7 +309,7 @@ body{
     max-width: 1280px;
     width: 100%;
     aspect-ratio: 5/1;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 }
 
 .value_title_contianer{
@@ -588,7 +588,7 @@ body{
 
 .second_loop_infinite_container{
     width: fit-content;
-    animation: roll 8s infinite linear;
+    animation: roll 9s infinite linear;
 }
 
 .second_loop_content_container{
