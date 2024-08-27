@@ -181,7 +181,7 @@ body{
 .loop_content_container{
     width: max-content;
     display: flex;
-    animation: roll 7s infinite linear;
+    animation: roll 12s infinite linear;
     /* flex 정렬속성 사용하면 position 없어도 설정 가능 */
     /* display: flex; align-items:center; justify-content: center; */
 }
@@ -325,7 +325,7 @@ body{
     font-weight: bold;
     text-align: center;
     padding: 32px 0;
-    margin-top: 100px;
+    margin-top: 5%;
 }
 
 .value_box{
@@ -357,7 +357,8 @@ body{
 }
 
 .value_box span.hidden{
-    opacity: 0;
+    opacity: 0
+    
 }
 
 #description {
@@ -511,64 +512,96 @@ body{
     filter: brightness(0.4);
 }
 
-/* #mobile_slide{
-    display: none;
+#main_intro_loop_container_diff{
     width: 100%;
-    height: 100%;
+    height: max-content; 
+    overflow: hidden;
 }
 
-.mobile_slide_main_scroll_content{
-    width: 100%;
-    height: 80vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-} */
+
+.loop_content_container.diff{
+    padding: 10px;
+    animation: roll 50s infinite linear;
+}
+
+
+.loop_content.diff{
+    color: #f4efec2b;
+    font-size: 6vw;
+    -webkit-text-stroke: 0;
+}
+
+
 
 #instergram{
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 10%;
+}
+
+
+.title_instergram{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 5%;
+    color: white;
 }
 
 .instergram_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.instergram_text_content_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
 }
 
-.instergram_text_container{
-    display: flex;
-    flex-direction: column;
+.instergram_id{
+    font-size: 20px;
+    color: white;
 }
 
-.instergram_id_icon_container{
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    justify-content: space-between;
+.instergram_btn{
+    font-size: 16px;
+    font-weight: bold;
+    width: 80px;
+    height: 15px;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 50px;
+    text-align: center;
+    color: white;
 }
 
-.instergram_icon{
-    width: 25px;
-    aspect-ratio: 1;
+.instergram_btn:hover{
+    background-color: white;
+    color: #141414;
+    transition: 0.3s;
 }
 
 .instergram_content_container{
     width: 100%;
     height: 100%;
+    max-width: 1280px;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    gap: 32px;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: nowrap;
 }
 
-.instergram_content{
-    width: 25%;
-    height: 100%;
-}
 
 .second_loop{
     overflow: hidden;
@@ -892,6 +925,10 @@ body{
         height: 20vh;
     }
 
+    .nav_menu_text_container{
+        font-size: 20px;
+    }
+
     }
 
 
@@ -1021,5 +1058,19 @@ body{
     /* #mobile_slide{
         display: block;
     } */
+
+    .nav_menu_text_container{
+        font-size: 18px;
+    }
+
+    .instergram_id{
+        font-size: 18px;
+    }
+
+    .instergram_btn{
+        font-size: 12px;
+        width: 50px;
+        height: 10px;
+    }
 
 }

@@ -91,7 +91,7 @@
             <div class="punto_value_container">
                 <div class="value_title_contianer">
                     <h2 class="value_text">PUNTO.의 핵심가치</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis autem eaque ipsum eius dolores itaque quis! Tempora numquam dolorum mollitia?</p>
+                    <p class="value_title_text">푼토 프로젝트는 5가지의 핵심가치를 제공하고자 노력합니다.</p>
                 </div>
                 <div class="value_container">
                     <div class="value_box" data_word="Precision">P</div>
@@ -186,6 +186,15 @@
             </div>
         </section>
 
+        <section id="main_intro_loop_container_diff">
+            <div class="loop_content_container diff">
+                <div class="loop_content diff">#Designs that Make a Mark</div>
+                <div class="loop_content diff">#Designs that Make a Mark</div>
+                <div class="loop_content diff">#Designs that Make a Mark</div>
+                <div class="loop_content diff">#Designs that Make a Mark</div>
+            </div>
+        </section>
+
         <!-- <section class="second_loop">
             <div class="rotate_container">
                 <div class="second_loop_infinite_container">
@@ -197,59 +206,40 @@
             </div>
         </section> -->
 
-        <section id="puto_inquiry">
+        <!-- <section id="puto_inquiry">
             <div class="inquiry_text_container">
                 <p class="inquiry_text_content"><strong class="text_point">프로젝트의 마지막과</strong><br><strong class="text_point">새로운 시작</strong>을 <strong class="text_point text_point_size_up">푼토</strong>와 <strong>함께</strong>하시는 건 어떨까요?</p>
                 <button class="inquiry_btn">함께하기</button>
             </div>
-        </section>
+        </section> -->
 
         <section id="instergram">
+            <h3 class="title_instergram">instergram</h3>
             <div class="instergram_container">
-                <div class="instergram_text_container">
-                    <h2 class="instergram_title">INSTAGRAM</h2>
-                    <div class="instergram_id_icon_container">
-                        <a href="#">@punto.project_</a>
-                        <div class="instergram_icon"><img src="./punto.html/ponto_img/Instagram_브라더민-01.png" alt=""></div>
-                    </div>
+                <div class="instergram_text_content_container">
+                    <a href="#" class="instergram_id">@punto.project_</a>
+                    <button class="instergram_btn">더보기</button>
                 </div>
                 <ul class="instergram_content_container">
                     <li class="instergram_content">
                         <div class="img_hover">
-                            <img class="istergram_img" src="./punto.html/ponto_img/임시1.jpg" alt="">
+                            <img class="istergram_img" src="./punto.html/ponto_img/브랜딩.png" alt="">
                             <a href="#"></a>
                         </div>
                     </li>
                     <li class="instergram_content">
                         <div class="img_hover">
-                            <img class="instergram_img" src="./punto.html/ponto_img/임시2.jpg" alt="">
+                            <img class="instergram_img" src="./punto.html/ponto_img/로고.png" alt="">
                             <a href="#"></a>
                         </div>
                     </li>
                     <li class="instergram_content">
                         <div class="img_hover">
-                            <img class="instergram_img" src="./punto.html/ponto_img/임시1.jpg" alt="">
+                            <img class="instergram_img" src="./punto.html/ponto_img/컨텐츠.png" alt="">
                             <a href="#"></a>
                         </div>
                     </li>
-                    <li class="instergram_content">
-                        <div class="img_hover">
-                            <img class="istergram_img" src="./punto.html/ponto_img/임시1.jpg" alt="">
-                            <a href="#"></a>
-                        </div>
-                    </li>
-                    <li class="instergram_content">
-                        <div class="img_hover">
-                            <img class="instergram_img" src="./punto.html/ponto_img/임시2.jpg" alt="">
-                            <a href="#"></a>
-                        </div>
-                    </li>
-                    <li class="instergram_content">
-                        <div class="img_hover">
-                            <img class="instergram_img" src="./punto.html/ponto_img/임시1.jpg" alt="">
-                            <a href="#"></a>
-                        </div>
-                    </li>
+                    
                 </ul>
             </div>
         </section>
@@ -348,40 +338,35 @@
         boxes.forEach((box,index) => {
             const letter = box.textContent;
             const word = box.getAttribute('data_word');
-            const wordDescription = box.getAttribute('data_description');
             box.innerHTML = `<span class="letter">${letter}</span><span class="hidden word">${letter}${word.slice(1)}</span>`;
 
+            console.log(box.innerHTML);
             box.addEventListener('click', () => {
 
 
                 if(box.classList.contains('active')){
                     box.classList.remove('active');
                     description[index].classList.remove('active');
+                    box.querySelector('.letter').classList.remove('hidden')
+                    box.querySelector('.word').classList.add('hidden')
                 }else{
                     boxes.forEach((box,index) => {
                         box.classList.remove('active')
                         description[index].classList.remove('active')
+                        box.querySelector('.letter').classList.remove('hidden')
+                        box.querySelector('.word').classList.add('hidden')
                     });
     
                     box.classList.add('active')
                     description[index].classList.add('active')
-    
-                    // box.querySelector('.letter').classList.add('hidden'); // Hide letter in clicked box
-                    // box.querySelector('.word').classList.remove('hidden'); // Show word in clicked box
-                    // description.textContent = wordDescription; // Show description
+                    box.querySelector('.letter').classList.add('hidden')
+                    box.querySelector('.word').classList.remove('hidden')
+
                 }
             });
         });
     });
 
-
-    // document.addEventListener('DOMContentLoaded',()=>{
-    //     const valueBox = document.querySelectorAll('.value_box')
-    //     const dateDescription = document.querySelectorAll('.date_description')
-
-        
-
-    // })
 
     
     const scrollContent = document.querySelectorAll('.slide_scroll_text_content_container');
