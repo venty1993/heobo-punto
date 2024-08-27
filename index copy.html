@@ -33,11 +33,11 @@
                 <div class="nav_total_menu_container"></div>
                 <ul class="nav_menu_container">
                     <div class="nav_menu_text_container">
-                        <li class="nav_menu_content"><a href="#" class="none_decoration">회사소개</a></li>
-                        <li class="nav_menu_content"><a href="#" class="none_decoration">포트폴리오</a></li>
-                        <li class="nav_menu_content"><a href="#" class="none_decoration">서비스</a></li>
-                        <li class="nav_menu_content"><a href="#" class="none_decoration">문의하기</a></li>
-                        <li class="nav_menu_content"><a href="#" class="none_decoration">고객후기</a></li>
+                        <li class="nav_menu_content"><a href="#" class="menu_a">회사소개</a></li>
+                        <li class="nav_menu_content"><a href="#" class="menu_a">포트폴리오</a></li>
+                        <li class="nav_menu_content"><a href="#" class="menu_a">서비스</a></li>
+                        <li class="nav_menu_content"><a href="#" class="menu_a">문의하기</a></li>
+                        <li class="nav_menu_content"><a href="#" class="menu_a">고객후기</a></li>
                     </div>
 
                     <bu class="menu_close_icon_container">
@@ -84,7 +84,6 @@
                 푼토 프로젝트는 <span class="text_point">다년간의 경험과 전문성을 바탕</span>으로<br>
                 브랜드의 <strong class="text_point">니즈를 파악</strong>하여 <strong class="text_point">맞춤형 디자인과 명확한 브랜드 컨셉을 제시</strong>하고 있어요.
             </div>
-            
         </section>
 
         <section id="point_value">
@@ -222,22 +221,16 @@
                 </div>
                 <ul class="instergram_content_container">
                     <li class="instergram_content">
-                        <div class="img_hover">
-                            <img class="istergram_img" src="./punto.html/ponto_img/브랜딩.png" alt="">
-                            <a href="#"></a>
-                        </div>
+                            <img class="instergram_img" src="./punto.html/ponto_img/브랜딩.png" alt="">
+                            <a href="#" class="istergram_link"></a>
                     </li>
                     <li class="instergram_content">
-                        <div class="img_hover">
                             <img class="instergram_img" src="./punto.html/ponto_img/로고.png" alt="">
-                            <a href="#"></a>
-                        </div>
+                            <a href="#" class="istergram_link"></a>
                     </li>
                     <li class="instergram_content">
-                        <div class="img_hover">
                             <img class="instergram_img" src="./punto.html/ponto_img/컨텐츠.png" alt="">
-                            <a href="#"></a>
-                        </div>
+                            <a href="#" class="istergram_link"></a>
                     </li>
                     
                 </ul>
@@ -273,7 +266,9 @@
                 </div>
             </div>
         </div>
+        <a href="#" class="top_icon"><svg class="top_icon_color" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 6l4-4l4 4m-4-4v20"/></svg></a>
     </footer>
+    
     <script src="./punto.html/makeSlider.js"></script>
     <script>
 
@@ -309,8 +304,8 @@
 
 
         const init = () => {
-            range = pScrollWrapper.getBoundingClientRect().width;
-            pScrollSection.style.height = `${range}px`
+            range = pScrollWrapper.getBoundingClientRect().width - window.innerWidth;
+            pScrollSection.style.height = `${range + window.innerHeight}px`
         }
 
 
@@ -322,8 +317,8 @@
             if(translateX > 0){
                 pScrollWrapper.style.transform = `translateX(${0}px)`
 
-            }else if(translateX < window.innerWidth-range){
-                pScrollWrapper.style.transform = `translateX(${window.innerWidth-range}px)`
+            }else if(translateX < -range){
+                pScrollWrapper.style.transform = `translateX(${-range}px)`
 
             }else {
                 pScrollWrapper.style.transform = `translateX(${translateX}px)`
@@ -340,7 +335,6 @@
             const word = box.getAttribute('data_word');
             box.innerHTML = `<span class="letter">${letter}</span><span class="hidden word">${letter}${word.slice(1)}</span>`;
 
-            console.log(box.innerHTML);
             box.addEventListener('click', () => {
 
 
@@ -365,9 +359,32 @@
                 }
             });
         });
+            if(window.innerWidth < 1300){
+                boxes[0].classList.add('active')
+                description[0].classList.add('active')
+                boxes[0].querySelector('.letter').classList.add('hidden')
+                boxes[0].querySelector('.word').classList.remove('hidden')
+            }else{
+                boxes[0].classList.remove('active')
+                description[0].classList.remove('active')
+                boxes[0].querySelector('.letter').classList.remove('hidden')
+                boxes[0].querySelector('.word').classList.add('hidden')
+            }
     });
+    
+    // observer로 다시 해보고 리사이즈 됬을 때 마다 실행되게 설정할 것ㄴ
+    
+    // const puntoObserver = new IntersectionObserver((entries)=>{
+    //     entries.forEach((entry)=>{
 
-
+    //         if(window.innerWidth < 1300){
+    //             boxes[0].classList.add('active')
+    //             description[0].classList.add('active')
+    //             boxes[0].querySelector('.letter').classList.add('hidden')
+    //             boxes[0].querySelector('.word').classList.remove('hidden')
+    //         }
+    //     })
+    // })
     
     const scrollContent = document.querySelectorAll('.slide_scroll_text_content_container');
 

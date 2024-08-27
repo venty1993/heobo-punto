@@ -91,6 +91,7 @@ body{
     align-items: flex-start;
     justify-content: center;
     font-size: 25px;
+    font-weight: bold;
     gap: 60px;
 }
 
@@ -127,6 +128,26 @@ body{
 
 .nav_menu_container.active{
     transform: none;
+}
+
+.menu_a{
+    color: white;
+    font-weight: 200;
+    text-decoration: none;
+    line-height: 40px;
+}
+
+.menu_a:after {
+   display:block;
+   content: '';
+   border-bottom: 2px solid #fff;
+   border-radius: 2px;
+   transform: scaleX(0);
+   transition: transform 250ms ease-in-out; 
+}
+
+.menu_a:hover:after {
+   transform: scaleX(1);
 }
 
 
@@ -285,6 +306,27 @@ body{
     transition-delay: 0.4s;
 }
 
+.top_icon{
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    width: 60px;
+    aspect-ratio: 1;
+    background-color: #ffffff3d;
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.top_icon_color{
+    color: #141414;
+}
+
+
+
 #point_value{
     width: 100%;
     height: 100%;
@@ -340,7 +382,11 @@ body{
     white-space: nowrap;
     background-color: rgb(0 0 0 / 8%);
     font-weight: 400;
-    transition: width 0.3s;
+    transition: 0.3s;
+}
+
+.value_box:hover{
+    transform: translateY(-10px);
 }
 
 .value_box.active{
@@ -601,6 +647,27 @@ body{
     gap: 16px;
     flex-wrap: nowrap;
 }
+
+.instergram_content{
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.instergram_img{
+    height: 100%;
+    object-fit: cover;
+    
+    transition: 0.2s;
+}
+
+.instergram_content:hover>img{
+    filter: brightness(0.7);
+    transform: scale(1.1);
+}
+
+
+
+
 
 
 .second_loop{
