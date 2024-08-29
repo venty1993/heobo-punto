@@ -326,9 +326,36 @@
 
         })
 
+    
+
     document.addEventListener('DOMContentLoaded', () => {
+
+        function openPuntoContent(index) {
+        if(boxes[index].classList.contains('active')){
+                boxes[index].classList.remove('active');
+                description[index].classList.remove('active');
+                boxes[index].querySelector('.letter').classList.remove('hidden')
+                boxes[index].querySelector('.word').classList.add('hidden')
+        }else{
+            boxes.forEach((box,index) => {
+                box.classList.remove('active')
+                description[index].classList.remove('active')
+                box.querySelector('.letter').classList.remove('hidden')
+                box.querySelector('.word').classList.add('hidden')
+            });
+
+            boxes[index].classList.add('active')
+            description[index].classList.add('active')
+            boxes[index].querySelector('.letter').classList.add('hidden')
+            boxes[index].querySelector('.word').classList.remove('hidden')
+            }
+        
+    }
+
+
         const boxes = document.querySelectorAll('.value_box');
         const description = document.getElementsByClassName('data_description');
+
 
         boxes.forEach((box,index) => {
             const letter = box.textContent;
@@ -336,71 +363,22 @@
             box.innerHTML = `<span class="letter">${letter}</span><span class="hidden word">${letter}${word.slice(1)}</span>`;
 
             box.addEventListener('click', () => {
-
-
-                if(box.classList.contains('active')){
-                    box.classList.remove('active');
-                    description[index].classList.remove('active');
-                    box.querySelector('.letter').classList.remove('hidden')
-                    box.querySelector('.word').classList.add('hidden')
-                }else{
-                    boxes.forEach((box,index) => {
-                        box.classList.remove('active')
-                        description[index].classList.remove('active')
-                        box.querySelector('.letter').classList.remove('hidden')
-                        box.querySelector('.word').classList.add('hidden')
-                    });
-    
-                    box.classList.add('active')
-                    description[index].classList.add('active')
-                    box.querySelector('.letter').classList.add('hidden')
-                    box.querySelector('.word').classList.remove('hidden')
-
-                }
+                openPuntoContent(index)
             });
         });
            
             const puntoObserver = new IntersectionObserver((entries)=>{
                 entries.forEach((entry) =>{
-                    if(entry.isIntersecting && window.innerWidth < 1300){
-                        boxes[0].classList.add('active')
-                        description[0].classList.add('active')
-                        boxes[0].querySelector('.letter').classList.add('hidden')
-                        boxes[0].querySelector('.word').classList.remove('hidden')
+                    if(entry.isIntersecting && window.innerWidth < 1300 && !boxes[0].classList.contains('active')){
+                        openPuntoContent(0)
                     }
                 });
-            });
 
-            observer.observe(boxes[0]);
+            })
 
-            window.addEventListener('resize',()=>{
-                if(window.innerWidth < 1300){
-                    boxes[0].classList.add('active')
-                    description[0].classList.add('active')
-                    boxes[0].querySelector('.letter').classList.add('hidden')
-                    boxes[0].querySelector('.word').classList.remove('hidden')
-                }else{
-                    boxes[0].classList.remove('active')
-                    description[0].classList.remove('active')
-                    boxes[0].querySelector('.letter').classList.remove('hidden')
-                    boxes[0].querySelector('.word').classList.add('hidden')
-                }
-            });
+            puntoObserver.observe(boxes[0]);
     });
     
-    // observer로 다시 해보고 리사이즈 됬을 때 마다 실행되게 설정할 것ㄴ
-    
-    // const puntoObserver = new IntersectionObserver((entries)=>{
-    //     entries.forEach((entry)=>{
-
-    //         if(window.innerWidth < 1300){
-    //             boxes[0].classList.add('active')
-    //             description[0].classList.add('active')
-    //             boxes[0].querySelector('.letter').classList.add('hidden')
-    //             boxes[0].querySelector('.word').classList.remove('hidden')
-    //         }
-    //     })
-    // })
     
     const scrollContent = document.querySelectorAll('.slide_scroll_text_content_container');
 

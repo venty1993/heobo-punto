@@ -229,7 +229,7 @@ body{
     align-items: center; 
     justify-content: center; 
     gap: 85px;
-    margin-top: 5%;
+    margin-top: 2%;
     border-top: 2px solid white;
 }
 
@@ -461,6 +461,7 @@ body{
 
 .p_scroll_wrapper{
     height: 100vh;
+    padding-right: 25vw;
     width: fit-content;
     display: flex;
 }
