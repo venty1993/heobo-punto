@@ -385,9 +385,6 @@ body{
     transition: 0.3s;
 }
 
-.value_box:hover{
-    transform: translateY(-10px);
-}
 
 .value_box.active{
     width: 35%;
@@ -395,11 +392,15 @@ body{
 }
 
 .value_box span {
-    position: absolute;
-    transition: opacity 0.3s;
+    position: absolute; 
+    transition: transform 0.3s, opacity 0.3s;
     font-size: 25px;
     font-weight: 550;
     color: #141414;
+}
+
+.value_box:hover span {
+    transform: translateY(-10px); 
 }
 
 .value_box span.hidden{

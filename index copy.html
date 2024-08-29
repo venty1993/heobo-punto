@@ -359,17 +359,33 @@
                 }
             });
         });
-            if(window.innerWidth < 1300){
-                boxes[0].classList.add('active')
-                description[0].classList.add('active')
-                boxes[0].querySelector('.letter').classList.add('hidden')
-                boxes[0].querySelector('.word').classList.remove('hidden')
-            }else{
-                boxes[0].classList.remove('active')
-                description[0].classList.remove('active')
-                boxes[0].querySelector('.letter').classList.remove('hidden')
-                boxes[0].querySelector('.word').classList.add('hidden')
-            }
+           
+            const puntoObserver = new IntersectionObserver((entries)=>{
+                entries.forEach((entry) =>{
+                    if(entry.isIntersecting && window.innerWidth < 1300){
+                        boxes[0].classList.add('active')
+                        description[0].classList.add('active')
+                        boxes[0].querySelector('.letter').classList.add('hidden')
+                        boxes[0].querySelector('.word').classList.remove('hidden')
+                    }
+                });
+            });
+
+            observer.observe(boxes[0]);
+
+            window.addEventListener('resize',()=>{
+                if(window.innerWidth < 1300){
+                    boxes[0].classList.add('active')
+                    description[0].classList.add('active')
+                    boxes[0].querySelector('.letter').classList.add('hidden')
+                    boxes[0].querySelector('.word').classList.remove('hidden')
+                }else{
+                    boxes[0].classList.remove('active')
+                    description[0].classList.remove('active')
+                    boxes[0].querySelector('.letter').classList.remove('hidden')
+                    boxes[0].querySelector('.word').classList.add('hidden')
+                }
+            });
     });
     
     // observer로 다시 해보고 리사이즈 됬을 때 마다 실행되게 설정할 것ㄴ
